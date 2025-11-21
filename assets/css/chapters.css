@@ -1,0 +1,171 @@
+/* Заголовок части */
+.part-title {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8a7aff;
+    margin-bottom: 40px;
+    border-left: 2px solid #8a7aff;
+    padding-left: 12px;
+}
+
+/* Заголовок главы */
+.chapter-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #ffffff 0%, #8a7aff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.chapter-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #8a7aff, transparent);
+}
+
+/* Вступительный блок с буквицей */
+.intro-block {
+    background: rgba(26, 26, 42, 0.8);
+    border-left: 4px solid #8a7aff;
+    padding: 30px;
+    margin: 40px 0;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border-radius: 0 8px 8px 0;
+}
+
+.intro-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8a7aff, transparent);
+}
+
+.drop-cap {
+    float: left;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 0.8;
+    margin: 8px 20px 5px 0;
+    background: linear-gradient(135deg, #8a7aff, #4a3aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.intro-text {
+    font-size: 17px;
+    text-align: justify;
+    color: #c8c8e0;
+    line-height: 1.7;
+}
+
+/* Двухколоночный блок */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.column {
+    font-size: 16px;
+    color: #b8b8d0;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* Декоративная цитата */
+.decorative-quote {
+    font-style: italic;
+    font-size: 16px;
+    color: #8a7aff;
+    border-left: 3px solid #4a3aff;
+    padding-left: 25px;
+    margin: 35px 0;
+    background: rgba(138, 122, 255, 0.05);
+    padding: 25px;
+    border-radius: 0 8px 8px 0;
+    line-height: 1.6;
+}
+
+/* Абзацы основного текста */
+.main-text {
+    font-size: 16px;
+    color: #d8d8f0;
+    text-align: justify;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.highlight {
+    color: #8a7aff;
+    font-weight: 600;
+}
+
+/* Блоки с дополнительной информацией */
+.info-block {
+    background: rgba(42, 42, 62, 0.6);
+    border: 1px solid #33334a;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 30px 0;
+}
+
+.info-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #8a7aff;
+    margin-bottom: 15px;
+}
+
+/* Адаптивность для контента */
+@media (max-width: 768px) {
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .chapter-title {
+        font-size: 32px;
+    }
+
+    .intro-block {
+        padding: 20px;
+        margin: 30px 0;
+    }
+
+    .drop-cap {
+        font-size: 60px;
+        margin: 5px 15px 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .chapter-title {
+        font-size: 28px;
+    }
+
+    .part-title {
+        font-size: 12px;
+    }
+
+    .main-text,
+    .intro-text,
+    .column {
+        font-size: 15px;
+    }
+}
