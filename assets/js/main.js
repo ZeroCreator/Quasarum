@@ -1,43 +1,29 @@
-// Основные функции управления интерфейсом
 class App {
     constructor() {
         this.sidebar = document.getElementById('sidebar');
         this.overlay = document.getElementById('sidebarOverlay');
-        this.menuToggle = document.getElementById('menuToggle');
-        this.mainContent = document.getElementById('mainContent');
         this.currentChapter = 1;
         this.totalChapters = 6;
-
+        
         this.init();
     }
 
     init() {
         this.bindEvents();
         this.loadChapter(this.currentChapter);
-        this.addCosmicElements();
-    }
-
-    addCosmicElements() {
-        // Добавляем декоративные элементы прямо в body
-        const cosmic1 = document.createElement('div');
-        cosmic1.className = 'cosmic-element';
-
-        const cosmic2 = document.createElement('div');
-        cosmic2.className = 'cosmic-element';
-
-        document.body.appendChild(cosmic1);
-        document.body.appendChild(cosmic2);
+        this.updateFooterYear();
     }
 
     bindEvents() {
         // Переключение меню
-        this.menuToggle.addEventListener('click', () => this.toggleMenu());
+        document.getElementById('menuToggle').addEventListener('click', () => this.toggleMenu());
         this.overlay.addEventListener('click', () => this.toggleMenu());
 
         // Закрытие меню при клике вне его
         document.addEventListener('click', (event) => {
-            if (!this.sidebar.contains(event.target) &&
-                !this.menuToggle.contains(event.target) &&
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!this.sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target) && 
                 this.sidebar.classList.contains('active')) {
                 this.toggleMenu();
             }
@@ -80,92 +66,80 @@ class App {
         }
     }
 
+    updateFooterYear() {
+        const yearElement = document.querySelector('.footer-left');
+        if (yearElement) {
+            const currentYear = new Date().getFullYear();
+            yearElement.textContent = `© ${currentYear} QUASARUM`;
+        }
+    }
+
     async loadChapter(chapterNumber) {
         try {
-            // Показываем индикатор загрузки
-            this.showLoadingState();
-
             const response = await fetch(`chapters/chapter${chapterNumber}.html`);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
             const content = await response.text();
 
+            // Обновляем контейнер
             document.getElementById('chapter-container').innerHTML = content;
 
-            // Добавляем навигацию после загрузки контента
-            this.addNavigationToContent();
+            // Обновляем состояние кнопок навигации
+            this.updateNavigationButtons(chapterNumber);
 
-            // Прокрутка к верху страницы
+            // Прокрутка к верху
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
         } catch (error) {
             console.error('Ошибка загрузки главы:', error);
-            this.showErrorState(chapterNumber);
+            document.getElementById('chapter-container').innerHTML = `
+                <div class="chapter-content">
+                    <div class="chapter-scrollable" style="text-align: center; padding: 40px 0;">
+                        <h2 style="color: #ff6b6b; margin-bottom: 20px;">Ошибка загрузки</h2>
+                        <p style="color: #b8b8d0; margin-bottom: 30px;">Не удалось загрузить главу ${chapterNumber}. Пожалуйста, попробуйте позже.</p>
+                        <button class="nav-button" onclick="app.loadChapter(${chapterNumber})">Попробовать снова</button>
+                    </div>
+                    <div class="chapter-navigation">
+                        <button class="nav-button prev-button" ${chapterNumber === 1 ? 'disabled' : ''}>← Предыдущая глава</button>
+                        <div class="chapter-indicator">Глава ${chapterNumber} из ${this.totalChapters}</div>
+                        <button class="nav-button next-button" ${chapterNumber === this.totalChapters ? 'disabled' : ''}>Следующая глава →</button>
+                    </div>
+                </div>
+            `;
+            this.updateNavigationButtons(chapterNumber);
         }
     }
 
-    showLoadingState() {
-        document.getElementById('chapter-container').innerHTML = `
-            <div class="loading-state">
-                <h2>Загрузка главы...</h2>
-                <div class="loading-spinner"></div>
-            </div>
-        `;
-    }
-
-    showErrorState(chapterNumber) {
-        document.getElementById('chapter-container').innerHTML = `
-            <div class="error-message">
-                <h2>Ошибка загрузки</h2>
-                <p>Не удалось загрузить главу ${chapterNumber}. Пожалуйста, попробуйте позже.</p>
-                <button class="nav-button" onclick="app.loadChapter(${chapterNumber})">Попробовать снова</button>
-            </div>
-        `;
-    }
-
-    addNavigationToContent() {
-        const navigationHTML = `
-            <div class="chapter-navigation">
-                <button class="nav-button prev-button" id="prevChapter"
-                    ${this.currentChapter === 1 ? 'disabled' : ''}>
-                    ← Предыдущая глава
-                </button>
-
-                <div class="chapter-indicator">
-                    Глава ${this.currentChapter} из ${this.totalChapters}
-                </div>
-
-                <button class="nav-button next-button" id="nextChapter"
-                    ${this.currentChapter === this.totalChapters ? 'disabled' : ''}>
-                    Следующая глава →
-                </button>
-            </div>
-        `;
-
-        document.getElementById('chapter-container').insertAdjacentHTML('beforeend', navigationHTML);
-
+    updateNavigationButtons(chapterNumber) {
         // Добавляем обработчики для кнопок навигации
-        document.getElementById('prevChapter')?.addEventListener('click', () => {
+        document.querySelector('.prev-button')?.addEventListener('click', () => {
             if (this.currentChapter > 1) {
                 this.navigateToChapter(this.currentChapter - 1);
             }
         });
 
-        document.getElementById('nextChapter')?.addEventListener('click', () => {
+        document.querySelector('.next-button')?.addEventListener('click', () => {
             if (this.currentChapter < this.totalChapters) {
                 this.navigateToChapter(this.currentChapter + 1);
             }
         });
+
+        // Обновляем индикатор текущей главы
+        const indicator = document.querySelector('.chapter-indicator');
+        if (indicator) {
+            indicator.textContent = `Глава ${chapterNumber} из ${this.totalChapters}`;
+        }
+
+        // Обновляем состояние кнопок
+        document.querySelector('.prev-button')?.toggleAttribute('disabled', chapterNumber === 1);
+        document.querySelector('.next-button')?.toggleAttribute('disabled', chapterNumber === this.totalChapters);
     }
 }
 
-// Делаем app глобальной для обработчиков в HTML
+// Создаем глобальную переменную для обработчиков
 let app;
 
-// Инициализация приложения при загрузке страницы
+// Инициализация приложения
 document.addEventListener('DOMContentLoaded', () => {
     app = new App();
 });

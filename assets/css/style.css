@@ -4,42 +4,44 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Georgia', serif;
     background: #0a0a1a;
     color: #e8e8f0;
     line-height: 1.6;
     min-height: 100vh;
-    overflow-x: hidden;
-    background:
-        radial-gradient(circle at 20% 80%, #1a1a3a 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, #2a1a4a 0%, transparent 50%),
-        linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 100%);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* СКРОЛЛ НА ВСЕЙ СТРАНИЦЕ */
+}
+
+/* Хедер */
+.site-header {
+    padding: 8px 0;
+    margin-top: 15px;
+    margin-bottom: -5px;
     position: relative;
+    z-index: 997;
+    flex-shrink: 0; /* Запрещаем сжиматься */
 }
 
-/* Декоративные космические элементы */
-.cosmic-element {
-    position: fixed;
-    background: radial-gradient(circle, #4a3aff 0%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0.1;
-    z-index: 0;
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: right;
+    padding-right: 50px;
 }
 
-.cosmic-element:nth-child(1) {
-    width: 300px;
-    height: 300px;
-    top: -150px;
-    right: -100px;
-}
-
-.cosmic-element:nth-child(2) {
-    width: 200px;
-    height: 200px;
-    bottom: -50px;
-    left: -50px;
-    background: radial-gradient(circle, #ff3a8c 0%, transparent 70%);
+.header-content em {
+    font-size: 11px;
+    font-style: italic;
+    color: #8a7aff;
+    opacity: 0.8;
 }
 
 /* Боковое меню */
@@ -80,17 +82,17 @@ body {
 
 .menu-toggle {
     position: fixed;
-    top: 30px;
+    top: 20px;
     left: 30px;
     z-index: 1001;
     background: rgba(138, 122, 255, 0.9);
     border: none;
     color: white;
-    padding: 12px 18px;
+    padding: 10px 16px;
     border-radius: 8px;
     cursor: pointer;
     font-family: 'Georgia', serif;
-    font-size: 16px;
+    font-size: 14px;
     transition: all 0.3s ease;
 }
 
@@ -166,64 +168,106 @@ body {
     border-left: 3px solid #8a7aff;
 }
 
-/* Основной контент - теперь полноразмерный */
+/* Основной контент */
 .main-content {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
+    flex: 1;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 40px 60px;
+    z-index: 2;
+    padding: 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    position: relative;
+    flex: 1; /* Растягивается на всю доступную высоту */
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 20% 80%, #1a1a3a 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, #2a1a4a 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a1a 0%, #1a1a2a 100%);
+    border: 1px solid #33334a;
+    box-shadow: 0 0 50px rgba(100, 80, 255, 0.1);
+    margin: 5px auto 20px;
+    padding: 25mm 20mm;
+    min-height: auto; /* УБИРАЕМ фиксированную высоту */
+    overflow: hidden;
+}
+
+/* Декоративные космические элементы */
+.cosmic-element {
+    position: absolute;
+    background: radial-gradient(circle, #4a3aff 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.cosmic-element:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -100px;
+}
+
+.cosmic-element:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    left: -50px;
+    background: radial-gradient(circle, #ff3a8c 0%, transparent 70%);
+}
+
+/* Основной контент */
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    flex: 1; /* Растягивается на всю высоту page-container */
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Важно для работы скролла в flex-контейнере */
 }
 
 .chapter-container {
+    flex: 1; /* Занимает все доступное пространство */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Футер сайта */
+.site-footer {
+    padding: 15px 0;
+    border-top: 1px solid #33334a;
+    background: #0a0a1a;
     position: relative;
     z-index: 3;
+    width: 100%;
+    flex-shrink: 0; /* Запрещаем сжиматься */
 }
 
-/* Навигация между главами */
-.chapter-navigation {
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid #33334a;
-}
-
-.nav-button {
-    background: rgba(138, 122, 255, 0.1);
-    border: 1px solid #8a7aff;
-    color: #8a7aff;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Georgia', serif;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.nav-button:hover {
-    background: rgba(138, 122, 255, 0.2);
-    transform: translateY(-2px);
-}
-
-.nav-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* Индикатор текущей главы */
-.chapter-indicator {
-    text-align: center;
+    font-size: 11px;
     color: #66668a;
-    font-size: 14px;
-    margin-top: 10px;
+}
+
+.footer-left, .footer-right {
+    opacity: 0.7;
 }
 
 /* Адаптивность */
+@media (max-width: 1024px) {
+    .page-container {
+        padding: 20mm 15mm;
+    }
+}
+
 @media (max-width: 768px) {
     .sidebar {
         width: 300px;
@@ -236,17 +280,31 @@ body {
     }
 
     .main-content {
-        padding: 70px 20px 40px;
+        padding: 0 15px 15px;
     }
 
-    .chapter-navigation {
-        flex-direction: column;
-        gap: 15px;
+    .page-container {
+        padding: 15mm 10mm;
+        margin: 5px auto 15px;
     }
 
-    .nav-button {
-        width: 100%;
+    .header-content {
         text-align: center;
+        padding-right: 20px;
+        padding-left: 60px;
+    }
+
+    .menu-toggle {
+        top: 17px;
+        left: 20px;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
     }
 }
 
@@ -255,7 +313,24 @@ body {
         left: 280px;
     }
 
+    .page-container {
+        padding: 10mm 8mm;
+        margin: 5px auto 10px;
+    }
+
+    .header-content em {
+        font-size: 10px;
+    }
+
+    .site-header {
+        margin-top: 10px;
+    }
+
+    .menu-toggle {
+        top: 15px;
+    }
+
     .main-content {
-        padding: 70px 15px 30px;
+        padding: 0 10px 10px;
     }
 }

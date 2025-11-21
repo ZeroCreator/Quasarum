@@ -1,3 +1,51 @@
+/* Контейнер главы */
+.chapter-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chapter-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Основной контент - растягивается на всю доступную высоту */
+.chapter-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Основной текстовый контент с скроллом */
+.chapter-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px; /* Место для скроллбара */
+    margin-bottom: 20px;
+    min-height: 0; /* Критически важно */
+}
+
+/* Стилизация скроллбара */
+.chapter-scrollable::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chapter-scrollable::-webkit-scrollbar-track {
+    background: rgba(138, 122, 255, 0.1);
+    border-radius: 3px;
+}
+
+.chapter-scrollable::-webkit-scrollbar-thumb {
+    background: rgba(138, 122, 255, 0.3);
+    border-radius: 3px;
+}
+
+.chapter-scrollable::-webkit-scrollbar-thumb:hover {
+    background: rgba(138, 122, 255, 0.5);
+}
+
 /* Заголовок части */
 .part-title {
     font-size: 14px;
@@ -5,17 +53,17 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #8a7aff;
-    margin-bottom: 40px;
+    margin-bottom: 10mm;
     border-left: 2px solid #8a7aff;
     padding-left: 12px;
 }
 
 /* Заголовок главы */
 .chapter-title {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 40px;
+    margin-bottom: 8mm;
     background: linear-gradient(135deg, #ffffff 0%, #8a7aff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -26,10 +74,10 @@
 .chapter-title::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -8px;
     left: 0;
-    width: 80px;
-    height: 3px;
+    width: 60px;
+    height: 2px;
     background: linear-gradient(90deg, #8a7aff, transparent);
 }
 
@@ -37,11 +85,10 @@
 .intro-block {
     background: rgba(26, 26, 42, 0.8);
     border-left: 4px solid #8a7aff;
-    padding: 30px;
-    margin: 40px 0;
+    padding: 25px;
+    margin-bottom: 30px;
     position: relative;
     backdrop-filter: blur(10px);
-    border-radius: 0 8px 8px 0;
 }
 
 .intro-block::before {
@@ -56,10 +103,10 @@
 
 .drop-cap {
     float: left;
-    font-size: 72px;
+    font-size: 68px;
     font-weight: 700;
     line-height: 0.8;
-    margin: 8px 20px 5px 0;
+    margin: 8px 15px 5px 0;
     background: linear-gradient(135deg, #8a7aff, #4a3aff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -67,48 +114,44 @@
 }
 
 .intro-text {
-    font-size: 17px;
+    font-size: 16px;
     text-align: justify;
     color: #c8c8e0;
-    line-height: 1.7;
 }
 
 /* Двухколоночный блок */
 .two-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin: 40px 0;
+    gap: 25px;
+    margin: 30px 0;
 }
 
 .column {
-    font-size: 16px;
+    font-size: 15px;
     color: #b8b8d0;
     text-align: justify;
-    line-height: 1.6;
 }
 
 /* Декоративная цитата */
 .decorative-quote {
     font-style: italic;
-    font-size: 16px;
+    font-size: 15px;
     color: #8a7aff;
-    border-left: 3px solid #4a3aff;
-    padding-left: 25px;
-    margin: 35px 0;
+    border-left: 2px solid #4a3aff;
+    padding-left: 20px;
+    margin: 25px 0;
     background: rgba(138, 122, 255, 0.05);
-    padding: 25px;
+    padding: 20px;
     border-radius: 0 8px 8px 0;
-    line-height: 1.6;
 }
 
 /* Абзацы основного текста */
 .main-text {
-    font-size: 16px;
+    font-size: 15px;
     color: #d8d8f0;
     text-align: justify;
-    margin-bottom: 25px;
-    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
 .highlight {
@@ -116,56 +159,85 @@
     font-weight: 600;
 }
 
-/* Блоки с дополнительной информацией */
-.info-block {
-    background: rgba(42, 42, 62, 0.6);
-    border: 1px solid #33334a;
-    border-radius: 8px;
-    padding: 25px;
-    margin: 30px 0;
+/* Пагинация - всегда внизу контейнера */
+.chapter-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 10px;
+    border-top: 1px solid #33334a;
+    flex-shrink: 0; /* Не сжимается */
+    margin-top: auto; /* Прижимается к низу */
 }
 
-.info-title {
-    font-size: 18px;
-    font-weight: 600;
+.nav-button {
+    background: rgba(138, 122, 255, 0.1);
+    border: 1px solid #8a7aff;
     color: #8a7aff;
-    margin-bottom: 15px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-button:hover {
+    background: rgba(138, 122, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.chapter-indicator {
+    text-align: center;
+    color: #66668a;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin: 0 15px;
 }
 
 /* Адаптивность для контента */
 @media (max-width: 768px) {
     .two-columns {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
 
-    .chapter-title {
-        font-size: 32px;
+    .chapter-navigation {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 0 5px;
     }
 
-    .intro-block {
-        padding: 20px;
-        margin: 30px 0;
+    .nav-button {
+        width: 100%;
+        text-align: center;
+        order: 2;
     }
 
-    .drop-cap {
-        font-size: 60px;
-        margin: 5px 15px 5px 0;
+    .chapter-indicator {
+        order: 1;
+        margin: 0;
     }
-}
 
-@media (max-width: 480px) {
+    .prev-button {
+        order: 3;
+    }
+
+    .next-button {
+        order: 4;
+    }
+
     .chapter-title {
         font-size: 28px;
     }
 
-    .part-title {
-        font-size: 12px;
-    }
-
-    .main-text,
-    .intro-text,
-    .column {
-        font-size: 15px;
+    .intro-block {
+        padding: 20px;
     }
 }

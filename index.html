@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="assets/css/chapters.css">
 </head>
 <body>
+    <!-- Хедер -->
+    <header class="site-header">
+        <div class="header-content">
+            <em>QUASARUM: Космический патогенез мощи и трансформации</em>
+        </div>
+    </header>
+
     <!-- Кнопка меню -->
     <button class="menu-toggle" id="menuToggle">☰ Оглавление</button>
 
@@ -43,18 +50,33 @@
         </div>
     </div>
 
-    <!-- Основной контент - теперь без лишних оберток -->
+    <!-- Основной контент -->
     <main class="main-content" id="mainContent">
-        <!-- Контейнер для загружаемого контента глав -->
-        <div id="chapter-container" class="chapter-container">
-            <!-- Контент будет загружаться сюда -->
+        <div class="page-container">
+            <!-- Декоративные космические элементы -->
+            <div class="cosmic-element"></div>
+            <div class="cosmic-element"></div>
+
+            <div class="content-wrapper">
+                <!-- Контейнер для загружаемого контента глав -->
+                <div id="chapter-container" class="chapter-container">
+                    <!-- Контент будет загружаться сюда -->
+                </div>
+            </div>
         </div>
     </main>
+
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">© 2024 QUASARUM</div>
+            <div class="footer-right">contact@quasarum.org</div>
+        </div>
+    </footer>
 
     <!-- Затемнение для сайдбара -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/navigation.js"></script>
 </body>
 </html>

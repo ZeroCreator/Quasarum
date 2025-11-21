@@ -68,8 +68,8 @@ QUASARUM — это инновационный лендинг, представ�
 
 1. **Клонируйте репозиторий**
 ```bash
-   git clone https://github.com/your-username/quasarum.git
-   cd quasarum
+   git clone https://github.com/ZeroCreator/Quasarum.git
+   cd Quasarum
 ```
 
 2. **Запустите локальный сервер (рекомендуется)**
@@ -125,13 +125,14 @@ https://via.placeholder.com/400x700/1a1a2a/8a7aff?text=Mobile+Version+-+QUASARUM
 
 </div>
 
-🌐 Живая демонстрация: quasarum.vercel.app
+🌐 Живая демонстрация: https://quasarum.vercel.app/
 
 ---
 
 ## 🔧 Разработка
 
 📋 **Требования**
+
 * 🌐 Современный браузер с поддержкой ES6+
 
 * ⌨️ Текстовый редактор (VS Code, Sublime Text, etc.)
@@ -185,7 +186,7 @@ Shkola Olga
 
 * 💻 GitHub: https://github.com/ZeroCreator/
 
-* 📧 Email:shkola.olga@gmail.com
+* 📧 Email: shkola.olga@gmail.com
 
 ---
 
