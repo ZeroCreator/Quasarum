@@ -64,7 +64,7 @@
     font-size: 36px;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 8mm;
+    margin-bottom: 8mm !important;
     background: linear-gradient(135deg, #ffffff 0%, #8a7aff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -165,9 +165,9 @@
     color: #a0a0ff;
     border-left: 3px solid #8a7aff;
     padding-left: 25px;
-    margin: 30px 0;
+    margin: 15px 0;
     background: rgba(138, 122, 255, 0.08);
-    padding: 25px;
+    padding: 10px 25px;
     border-radius: 0 8px 8px 0;
     line-height: 1.7;
 }
@@ -427,7 +427,7 @@
 
 /* Стили для подразделов */
 .subsection {
-    margin: 25px 0;
+    margin: 15px 0;
 }
 
 .subsection-title {
@@ -442,4 +442,18 @@
     color: #d8d8f0;
     text-align: justify;
     margin-bottom: 20px;
+}
+
+/* Разделительная линия */
+.divider-line {
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        #33334a 20%,
+        #8a7aff 50%,
+        #33334a 80%,
+        transparent 100%);
+    margin: 10px 0;
+    width: 100%;
+    opacity: 0.6;
 }
