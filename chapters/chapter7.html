@@ -19,8 +19,70 @@
             font-style: italic;
         }
 
+        .content-block {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(26, 26, 42, 0.5);
+            border-radius: 8px;
+            border-left: 3px solid #44446a;
+        }
+
+        .content-subtitle {
+            font-size: 16px;
+            color: #8a7aff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .content-block .content-list {
+            margin: 10px 0;
+        }
+
+        .content-block .content-list li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .modality-block {
+            background: linear-gradient(135deg, rgba(138, 122, 255, 0.1) 0%, rgba(74, 58, 255, 0.05) 100%);
+            border: 1px solid rgba(138, 122, 255, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .modality-section {
+            margin-bottom: 20px;
+        }
+
+        .modality-title {
+            font-size: 16px;
+            color: #8a7aff;
+            font-weight: 600;
+            margin-bottom: 10px;
+            border-left: 3px solid #8a7aff;
+            padding-left: 12px;
+        }
+
+        .key-item {
+            background: rgba(30, 30, 50, 0.8);
+            border-left: 4px solid #8a7aff;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .key-category {
+            font-weight: 600;
+            color: #a0a0ff;
+            margin-bottom: 8px;
+        }
+
         @media (max-width: 768px) {
-            .symptom-item {
+            .symptom-item,
+            .content-block,
+            .modality-block,
+            .key-item {
                 padding: 15px;
                 margin: 15px 0;
             }
@@ -102,6 +164,155 @@
                     <span class="highlight">Действие препарата:</span> Quasarum восстанавливает и выправляет волевой стержень. Он не просто дает энергию, а пробуждает саму способность хотеть и действовать.
                 </div>
             </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">7.2. Общие симптомы</h3>
+            <div class="subsection-content">
+                II. Общие симптомы
+            </div>
+
+            <div class="symptom-item">
+                <div class="symptom-indication">1. Энергетический застой.</div>
+                <div class="subsection-content">
+                    <span class="highlight">Показание:</span> Ощущение «застоя» в теле, тяжести, отсутствия жизненных сил. Хроническая усталость.
+                </div>
+                <div class="symptom-action">
+                    <span class="highlight">Действие препарата:</span> Ощущение движения энергий внутри, «освобождающая» зевота, слезы — все это признаки выхода системы из застоя и начала движения энергии.
+                </div>
+            </div>
+
+            <div class="symptom-item">
+                <div class="symptom-indication">2. Потребность в физической активности.</div>
+                <div class="subsection-content">
+                    <span class="highlight">Показание:</span> Состояние, когда энергия есть, но она заблокирована, что может проявляться как внутреннее беспокойство или фрустрация.
+                </div>
+                <div class="symptom-action">
+                    <span class="highlight">Действие препарата:</span> Появление желания физической активности, «куда-то бежать и что-то делать». Энергия квазара требует физического выплеска.
+                </div>
+            </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">7.3. Локальные симптомы</h3>
+            <div class="subsection-content">
+                III. Необычные, характерные и ключевые симптомы (Своеобразная «визитная карточка»)
+            </div>
+
+            <div class="symptom-item">
+                <div class="symptom-indication">1. «Снести все преграды».</div>
+                <div class="subsection-content">
+                    <span class="highlight">Показание:</span> Склонность решать проблемы прямолинейно, напролом, часто с ущербом для себя (как физическим, так и эмоциональным). Ощущение, что мир полон преград, которые нужно разрушить, а не обойти. Не гибкость.
+                </div>
+                <div class="symptom-action">
+                    <span class="highlight">Проявление:</span> Резкость в движениях, ухудшение координации на фоне прилива сил, случайные травмы («ударилась головой об угол»).
+                </div>
+            </div>
+
+            <div class="symptom-item">
+                <div class="symptom-indication">2. Ощущение «меня стали видеть».</div>
+                <div class="subsection-content">
+                    <span class="highlight">Показание:</span> Человек чувствует себя «невидимкой», его не замечают, его потребности игнорируются.
+                </div>
+                <div class="symptom-action">
+                    <span class="highlight">Действие препарата:</span> После приема препарата мир начинает «видеть» человека, ему предлагают помощь, возможности, «подарки». Это внешнее отражение пробудившейся внутренней силы.
+                </div>
+            </div>
+
+            <div class="symptom-item">
+                <div class="symptom-indication">3. Тепло в центре груди.</div>
+                <div class="subsection-content">
+                    <span class="highlight">Показание:</span> Эмоциональная закрытость, неспособность к эмпатии или принятию любви. Заблокированное «духовное сердце».
+                </div>
+                <div class="symptom-action">
+                    <span class="highlight">Действие препарата:</span> Пробуждение собственного источника силы через раскрытие «духовного сердца». Сила квазара соединяется с состраданием.
+                </div>
+            </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">7.4. Модальности</h3>
+
+            <div class="modality-block">
+                <div class="modality-section">
+                    <div class="modality-title">Ухудшение:</div>
+                    <ul class="content-list">
+                        <li>От подавленности и застоя (основное состояние "до")</li>
+                        <li>От ощущения ограничения и чувства вины</li>
+                    </ul>
+                </div>
+
+                <div class="modality-section">
+                    <div class="modality-title">Улучшение:</div>
+                    <ul class="content-list">
+                        <li>От активной деятельности (физической, творческой)</li>
+                        <li>От выражения своей воли и влияния на окружение</li>
+                        <li>От расширения границ своего влияния и возможностей</li>
+                        <li>От высвобождения эмоций (слезы, смех)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="subsection">
+            <h3 class="subsection-title">7.5. Ключи препарата Quasarum</h3>
+
+            <div class="key-item">
+                <div class="key-category">Ядро личности (Психика):</div>
+                <ul class="content-list">
+                    <li><span class="highlight">Воля</span> («Сломанная воля», «волевой паралич», восстановление волевого стержня).</li>
+                    <li><span class="highlight">Суверенитет</span> (Авторство своей жизни, право диктовать свои правила, трансляция законов).</li>
+                    <li><span class="highlight">Мощь</span> (Внутренняя сила, «море по колено», ощущение безграничной энергии).</li>
+                    <li><span class="highlight">Целостность</span> (Вне дуальностей, слияние архетипов, самодостаточность).</li>
+                    <li><span class="highlight">Бесстрашие</span> (Не как отсутствие эмоции, а как фундаментальное ощущение себя неуязвимой силой).</li>
+                </ul>
+            </div>
+
+            <div class="key-item">
+                <div class="key-category">Способ взаимодействия с миром (Поведение):</div>
+                <ul class="content-list">
+                    <li><span class="highlight">Напор</span> (Прямолинейность, «снести преграды головой», пробивная энергия).</li>
+                    <li><span class="highlight">Влияние</span> (Активное формирование пространства, желание влиять на людей и обстоятельства).</li>
+                    <li><span class="highlight">Трансформация</span> (Глубинный перезапуск, преображение себя и реальности).</li>
+                </ul>
+            </div>
+
+            <div class="key-item">
+                <div class="key-category">Энергетический уровень:</div>
+                <ul class="content-list">
+                    <li><span class="highlight">Перезапуск</span> (Мгновенный выход из застоя, резкий энергетический скачок).</li>
+                    <li><span class="highlight">Источник</span> (Пробуждение внутреннего генератора силы, автономность).</li>
+                </ul>
+            </div>
+
+            <div class="key-item">
+                <div class="key-category">Глубинная метафора:</div>
+                <ul class="content-list">
+                    <li><span class="highlight">Квазар</span> (Активное галактическое ядро, космический центр силы, трансформирующее излучение).</li>
+                    <li><span class="highlight">Фундаментальная Сила</span> (Сила как первичная, неполяризованная и необусловленная категория, стоящая над любыми бинарными системами, включая гендер).</li>
+                </ul>
+            </div>
+
+            <div class="key-item">
+                <div class="key-category">Ключевой конфликт:</div>
+                <div class="subsection-content">
+                    <span class="highlight">Разрыв между знанием о своей силе и невозможностью ее проявить.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider-line strong"></div>
+
+        <div class="decorative-quote">
+            Quasarum — это не просто препарат, а космический принцип, преобразующий гравитационный коллапс личности в излучение жизненной силы. Его ключ — в пробуждении внутреннего генератора воли и творчества, позволяющего человеку стать автором своей реальности.
         </div>
 
     </div>
