@@ -104,14 +104,17 @@ class App {
 
             let url;
             let isGallery = false;
+            let isReferences = false;
 
-            // Определяем URL для загрузки
+            // Определяем тип страницы
             if (chapter === 'gallery') {
                 url = 'chapters/gallery.html';
                 isGallery = true;
+            } else if (chapter === 'references') {
+                url = 'chapters/references.html';
+                isReferences = true;
             } else {
                 url = `chapters/chapter${chapter}.html`;
-                isGallery = false;
             }
 
             // Пробуем разные пути
@@ -144,8 +147,8 @@ class App {
 
             document.getElementById('chapter-container').innerHTML = content;
 
-            // Обновляем навигацию
-            this.updateNavigationButtons(chapter, isGallery);
+            // Обновляем навигацию - передаем ВСЕ три параметра
+            this.updateNavigationButtons(chapter, isGallery, isReferences);
 
             // Прокрутка к верху
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -167,47 +170,69 @@ class App {
         }
     }
 
-    updateNavigationButtons(chapter, isGallery = false) {
+    updateNavigationButtons(currentChapter, isGallery = false, isReferences = false) {
         const prevButton = document.querySelector('.prev-button');
         const nextButton = document.querySelector('.next-button');
         const indicator = document.querySelector('.chapter-indicator');
 
-        if (chapter === 'gallery') {
-            // Навигация для галереи
-            if (prevButton) {
-                prevButton.textContent = '← К первой главе';
-                prevButton.onclick = () => this.navigateToChapter(1);
-                prevButton.disabled = false;
-                prevButton.style.display = 'block';
-            }
-            if (nextButton) {
-                nextButton.style.display = 'none';
-            }
-            if (indicator) {
-                indicator.textContent = 'Галерея изображений';
-            }
-        } else {
-            // Навигация для обычных глав
-            const chapterNum = parseInt(chapter);
+        if (!prevButton || !nextButton || !indicator) return;
 
-            if (prevButton) {
-                prevButton.textContent = '← Предыдущая глава';
-                prevButton.onclick = () => this.navigateToChapter(chapterNum - 1);
-                prevButton.disabled = chapterNum === 1;
-                prevButton.style.display = 'block';
-            }
-            if (nextButton) {
-                nextButton.textContent = 'Следующая глава →';
-                nextButton.onclick = () => this.navigateToChapter(chapterNum + 1);
-                nextButton.disabled = chapterNum === this.totalChapters;
-                nextButton.style.display = 'block';
-            }
-            if (indicator) {
-                indicator.textContent = `Глава ${chapterNum} из ${this.totalChapters}`;
-            }
+        // Для галереи
+        if (isGallery) {
+            prevButton.innerHTML = '← К главе 9';
+            prevButton.onclick = () => this.loadChapter('9');
+            prevButton.disabled = false;
+
+            nextButton.innerHTML = 'Следующая →';
+            nextButton.disabled = true;
+            nextButton.style.display = 'none';
+
+            indicator.textContent = 'Галерея';
+            return;
         }
-    }
 
+        // Для страницы материалов
+        if (isReferences) {
+            prevButton.innerHTML = '← К главе 9';
+            prevButton.onclick = () => this.loadChapter('9');
+            prevButton.disabled = false;
+
+            nextButton.innerHTML = 'Следующая →';
+            nextButton.disabled = true;
+            nextButton.style.display = 'none';
+
+            indicator.textContent = 'Использованные материалы';
+            return;
+        }
+
+        // Для обычных глав
+        const chapterNum = parseInt(currentChapter);
+
+        // Предыдущая глава
+        if (chapterNum > 1) {
+            prevButton.innerHTML = '← Предыдущая глава';
+            prevButton.onclick = () => this.loadChapter((chapterNum - 1).toString());
+            prevButton.disabled = false;
+        } else {
+            prevButton.innerHTML = '← Предыдущая глава';
+            prevButton.disabled = true;
+        }
+
+        // Следующая глава
+        if (chapterNum < 9) {
+            nextButton.innerHTML = 'Следующая глава →';
+            nextButton.onclick = () => this.loadChapter((chapterNum + 1).toString());
+            nextButton.disabled = false;
+            nextButton.style.display = 'block';
+        } else {
+            nextButton.innerHTML = 'Следующая глава →';
+            nextButton.disabled = true;
+            nextButton.style.display = 'block';
+        }
+
+        // Индикатор
+        indicator.textContent = `Глава ${chapterNum} из 9`;
+    }
     updateFooterYear() {
         const yearElement = document.querySelector('.footer-left');
         if (yearElement) {
