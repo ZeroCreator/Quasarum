@@ -179,8 +179,8 @@ class App {
 
         // Для галереи
         if (isGallery) {
-            prevButton.innerHTML = '← К главе 9';
-            prevButton.onclick = () => this.loadChapter('9');
+            prevButton.innerHTML = '← Материалы';
+            prevButton.onclick = () => this.loadChapter('references');
             prevButton.disabled = false;
 
             nextButton.innerHTML = 'Следующая →';
@@ -197,9 +197,10 @@ class App {
             prevButton.onclick = () => this.loadChapter('9');
             prevButton.disabled = false;
 
-            nextButton.innerHTML = 'Следующая →';
-            nextButton.disabled = true;
-            nextButton.style.display = 'none';
+            nextButton.innerHTML = 'Галерея →';
+            nextButton.onclick = () => this.loadChapter('gallery');
+            nextButton.disabled = false;
+            nextButton.style.display = 'block';
 
             indicator.textContent = 'Использованные материалы';
             return;
@@ -218,10 +219,16 @@ class App {
             prevButton.disabled = true;
         }
 
-        // Следующая глава
+        // Следующая глава - ОСОБЫЙ СЛУЧАЙ ДЛЯ ГЛАВЫ 9
         if (chapterNum < 9) {
             nextButton.innerHTML = 'Следующая глава →';
             nextButton.onclick = () => this.loadChapter((chapterNum + 1).toString());
+            nextButton.disabled = false;
+            nextButton.style.display = 'block';
+        } else if (chapterNum === 9) {
+            // Для последней главы ведем к материалам
+            nextButton.innerHTML = 'Материалы →';
+            nextButton.onclick = () => this.loadChapter('references');
             nextButton.disabled = false;
             nextButton.style.display = 'block';
         } else {
@@ -233,6 +240,7 @@ class App {
         // Индикатор
         indicator.textContent = `Глава ${chapterNum} из 9`;
     }
+
     updateFooterYear() {
         const yearElement = document.querySelector('.footer-left');
         if (yearElement) {
