@@ -219,13 +219,13 @@ class App {
             prevButton.disabled = true;
         }
 
-        // Следующая глава - ОСОБЫЙ СЛУЧАЙ ДЛЯ ГЛАВЫ 9
-        if (chapterNum < 9) {
+        // Следующая глава - ОСОБЫЙ СЛУЧАЙ ДЛЯ ГЛАВЫ 11
+        if (chapterNum < 11) {
             nextButton.innerHTML = 'Следующая глава →';
             nextButton.onclick = () => this.loadChapter((chapterNum + 1).toString());
             nextButton.disabled = false;
             nextButton.style.display = 'block';
-        } else if (chapterNum === 9) {
+        } else if (chapterNum === 11) {
             // Для последней главы ведем к материалам
             nextButton.innerHTML = 'Материалы →';
             nextButton.onclick = () => this.loadChapter('references');
@@ -238,7 +238,7 @@ class App {
         }
 
         // Индикатор
-        indicator.textContent = `Глава ${chapterNum} из 9`;
+        indicator.textContent = `Глава ${chapterNum} из 11`;
     }
 
     updateFooterYear() {

@@ -1,191 +1,305 @@
 <div class="chapter-content">
     <style>
-        .miasma-block {
-            background: rgba(30, 30, 50, 0.8);
-            border-left: 4px solid #8a7aff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
+        .symptom-table {
+            margin: 25px 0;
+            border: 1px solid #44446a;
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(20, 20, 35, 0.9);
         }
 
-        .miasma-title {
-            font-size: 16px;
-            color: #8a7aff;
+        .table-header {
+            display: flex;
+            background: rgba(138, 122, 255, 0.2);
+            border-bottom: 1px solid #44446a;
+            font-weight: 600;
+            color: #d8d8ff;
+        }
+
+        .table-row {
+            display: flex;
+            border-bottom: 1px solid #33334a;
+            transition: background-color 0.3s ease;
+        }
+
+        .table-row:hover {
+            background: rgba(138, 122, 255, 0.05);
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .symptom-col {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #33334a;
+            color: #e8e8f0;
+            line-height: 1.6;
+        }
+
+        .justification-col {
+            flex: 1;
+            padding: 20px;
+            color: #d8d8f0;
+            line-height: 1.6;
+        }
+
+        .archetype-tag {
+            display: inline-block;
+            background: rgba(138, 122, 255, 0.2);
+            color: #a0a0ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 600;
             margin-bottom: 10px;
+            border: 1px solid rgba(138, 122, 255, 0.3);
         }
 
-        .patient-portrait {
-            background: linear-gradient(135deg, rgba(138, 122, 255, 0.1) 0%, rgba(74, 58, 255, 0.05) 100%);
-            border: 1px solid rgba(138, 122, 255, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
+        .phase-section {
+            margin: 40px 0;
+        }
+
+        .phase-title {
+            font-size: 20px;
+            color: #8a7aff;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-left: 4px solid #8a7aff;
+            padding-left: 15px;
+        }
+
+        .content-block {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(26, 26, 42, 0.5);
+            border-radius: 8px;
+            border-left: 3px solid #44446a;
+        }
+
+        .content-subtitle {
+            font-size: 16px;
+            color: #8a7aff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .content-block .content-list {
+            margin: 10px 0;
+        }
+
+        .content-block .content-list li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .divider-section {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #8a7aff, #44446a, transparent);
+            margin: 30px 0;
+            width: 100%;
+        }
+
+        .resume-block {
+            background: rgba(138, 122, 255, 0.1);
+            border: 1px solid #8a7aff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
         }
 
         @media (max-width: 768px) {
-            .miasma-block,
-            .patient-portrait {
+            .symptom-table {
+                border: none;
+                background: transparent;
+            }
+
+            .table-header,
+            .table-row {
+                flex-direction: column;
+                margin-bottom: 20px;
+                border: 1px solid #44446a;
+                border-radius: 8px;
+                overflow: hidden;
+                background: rgba(20, 20, 35, 0.9);
+            }
+
+            .symptom-col,
+            .justification-col {
+                border-right: none;
+                border-bottom: 1px solid #33334a;
                 padding: 15px;
-                margin: 15px 0;
+            }
+
+            .table-row:last-child .symptom-col,
+            .table-row:last-child .justification-col {
+                border-bottom: none;
             }
         }
     </style>
 
     <div class="chapter-main">
-        <!-- Картинка вверху -->
-        <div class="chapter-image">
-            <img src="assets/images/quasar11.jpg" alt="Materia Medica Quasarum">
-            <div class="image-caption">Фундаментальные принципы и ядро препарата Quasarum</div>
-        </div>
-
-        <div class="part-title">Часть III: MATERIA MEDICA QUASARUM</div>
-        <h1 class="chapter-title">Глава 6. Фундаментальные принципы и ядро препарата</h1>
+        <div class="part-title">Часть II: КЛИНИЧЕСКОЕ ПРИМЕНЕНИЕ И АНАЛИЗ</div>
+        <h1 class="chapter-title">Глава 6. Дифференциальная диагностика</h1>
 
         <div class="intro-block">
-            <span class="drop-cap">А</span>
+            <span class="drop-cap">Д</span>
             <p class="intro-text">
-                рхетип: <span class="highlight">Активное галактическое ядро.</span> Символ колоссальной энергии, рождающейся в условиях экстремального давления и гравитации. Внутренний Источник, преобразующий тьму хаоса в мощное излучение.
+                ифференциальная диагностика — ключевой этап в определении показаний для назначения препарата. В этой главе мы проведем сравнительный анализ Quasarum с другими препаратами космического класса и классическими полихрестами, чтобы выявить его уникальные терапевтические ниши.
             </p>
         </div>
 
+        <div class="divider-section"></div>
+
+        <div class="phase-section">
+            <h3 class="phase-title">6.1. Дифференциальная диагностика в классе Невещественных (Космических) препаратов</h3>
+
+            <div class="symptom-table">
+                <div class="table-header">
+                    <div class="symptom-col">Препарат</div>
+                    <div class="justification-col">Общее с Quasarum</div>
+                    <div class="justification-col">Ключевые отличия от Quasarum</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Black Hole</strong><br>(Черная Дыра)
+                    </div>
+                    <div class="justification-col">
+                        Гравитация, давление, коллапс, поглощение. Оба связаны с экстремальными состояниями.
+                    </div>
+                    <div class="justification-col">
+                        <strong>Black Hole</strong> — это уход в себя, полный отказ от внешнего мира, энергетический и эмоциональный вакуум, состояние "точки невозврата". <strong>Quasarum</strong> — это <strong>активная фаза черной дыры</strong>, где коллапс и давление являются <strong>топливом</strong> для мощнейшего излучения вовне. Black Hole — это тишина и тьма, Quasarum — это шум и свет, рожденные из этой тьмы.
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Sol</strong><br>(Солнце)
+                    </div>
+                    <div class="justification-col">
+                        Мощный источник энергии, свет, жизненная сила, центр своей "системы".
+                    </div>
+                    <div class="justification-col">
+                        <strong>Sol</strong> — это стабильное, устойчивое, жизнетворное сияние. Оно дает жизнь и тепло, его энергия постоянна и предсказуема. <strong>Quasarum</strong> — это <strong>взрывная, нестабильная, гипертрофированная активность</strong>. Его свет — не спокойное сияние, а яростный луч, прожигающий пространство. Sol — это царь на своем троне, Quasarum — титан, штурмующий небеса.
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Stella</strong><br>(Звезда)
+                    </div>
+                    <div class="justification-col">
+                        Свет, индивидуальность, сияние.
+                    </div>
+                    <div class="justification-col">
+                        <strong>Stella</strong> — это архетип уникальной судьбы, личного блеска, "быть звездой". Фокус на индивидуальном пути и признании. <strong>Quasarum</strong> — это не просто "быть звездой", а <strong>быть ядром целой галактики</strong>. Его фокус — не на личном сиянии, а на <strong>трансформации и влиянии на все окружающее пространство</strong>. Сила Quasarum на порядок мощнее и хаотичнее.
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Via Lactea</strong><br>(Млечный Путь)
+                    </div>
+                    <div class="justification-col">
+                        Космический масштаб, связь с целым.
+                    </div>
+                    <div class="justification-col">
+                        <strong>Via Lactea</strong> — это архетип единства, принадлежности к чему-то большему, "пути домой". Это препарат тоски по целостности и своего места в системе. <strong>Quasarum</strong> — это архетип <strong>создания своей собственной системы</strong>. Он не ищет место в галактике, он сам является ее активным центром, диктующим законы.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider-section"></div>
+
+        <div class="phase-section">
+            <h3 class="phase-title">6.2. Дифференциальная диагностика с ключевыми полихрестами</h3>
+
+            <div class="symptom-table">
+                <div class="table-header">
+                    <div class="symptom-col">Препарат</div>
+                    <div class="justification-col">Общее с Quasarum</div>
+                    <div class="justification-col">Ключевые отличия от Quasarum</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Carcinosinum</strong>
+                    </div>
+                    <div class="justification-col">
+                        Огромный внутренний потенциал, подавленная творческая и лидерская сила, перфекционизм, чувство обязанности соответствовать ожиданиям.
+                    </div>
+                    <div class="justification-col">
+                        <strong>Carcinosinum</strong> подавляет свою силу из-за страха причинить вред или несоответствия идеалу. Его энергия уходит на контроль и создание "идеальной клетки". <strong>Quasarum</strong> подавлен потому, что его грубая, взрывная сила не находит адекватного выхода. Carcinosinum — это сломленная воля "хорошего ребенка", Quasarum — это "сломленная воля титана", который не может пробить скалу, но не прекращает попыток.
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Nux Vomica</strong>
+                    </div>
+                    <div class="justification-col">
+                        Напор, активность, прямолинейность, желание добиться своего, состояние "всех преград головой".
+                    </div>
+                    <div class="justification-col">
+                        <strong>Nux Vomica</strong> — это "земной" напор бизнесмена или трудоголика. Его движут амбиции, раздражение, спешка. Его энергия направлена на конкретные земные цели. <strong>Quasarum</strong> — это <strong>"космический" напор</strong>, движимый не земными амбициями, а экзистенциальной необходимостью извергнуть из себя накопленный творческий и жизненный потенциал. Его прямолинейность — следствие не раздражения, а колоссального внутреннего давления.
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Aurum Metallicum</strong>
+                    </div>
+                    <div class="justification-col">
+                        Чувство ответственности, серьезность, глубокая депрессия с чувством самоосуждения, сильная воля.
+                    </div>
+                    <div class="justification-col">
+                        <strong>Aurum</strong> — это депрессия "короля", потерявшего свой трон, падение с высоты долга и чести. Его боль — от потери уже достигнутого статуса и смысла. <strong>Quasarum</strong> — это депрессия "титана", который <strong>еще не взошел на трон</strong>. Его страдание — от невозможности реализовать свой потенциал, от сжатия, а не от падения. Aurum хочет вернуть былую славу, Quasarum — впервые явить свою мощь миру.
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Lachesis</strong>
+                    </div>
+                    <div class="justification-col">
+                        Мощная, подавляемая энергия, потребность в самовыражении, желание влияния, ревность.
+                    </div>
+                    <div class="justification-col">
+                        <strong>Lachesis</strong> — это энергия, связанная с эмоциями, страстью, подозрительностью, "змеиная" хитрость и внезапность. Ее сила нуждается в объекте (любовь, ревность). <strong>Quasarum</strong> — это более <strong>фундаментальная, безличная сила</strong>. Его энергия не столь эмоционально окрашена; это сила творчества, воли и влияния как космического принципа, а не как личной драмы.
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="symptom-col">
+                        <strong>Sulphur</strong>
+                    </div>
+                    <div class="justification-col">
+                        Ощущение собственной значимости, философские размышления, жажда творчества.
+                    </div>
+                    <div class="justification-col">
+                        <strong>Sulphur</strong> — это "божественный ребенок", гениальный, но неорганизованный, сосредоточенный на своих грандиозных идеях. Ему может не хватать дисциплины для реализации. <strong>Quasarum</strong> обладает <strong>взрывной, целенаправленной энергией для действия</strong>. Его проблема не в отсутствии дисциплины, а в том, что сила заблокирована или выплескивается слишком грубо. Sulphur — это философ, Quasarum — это творец-демиург.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider-section"></div>
+
+        <div class="resume-block">
+            <h3 class="phase-title">Резюме для практика:</h3>
+            <ul class="content-list">
+                <li>Выбирайте <strong>Quasarum</strong> вместо других космических препаратов, когда давление и коллапс не приводят к угасанию, а, наоборот, создают <strong>невыносимое напряжение, требующее выхода</strong> в виде активного, мощного, преобразующего влияния на мир.</li>
+                <li>Выбирайте <strong>Quasarum</strong> вместо полихрестов, когда классические "земные" истории (обязанность Aurum, раздражение Nux vom., страсть Lachesis) кажутся слишком мелкими на фоне ощущения у пациента, что внутри него заключена <strong>космическая сила, требующая выхода</strong>, и основным блоком является "сломленная воля" и невозможность совершить прорыв к своей истинной мощности.</li>
+            </ul>
+        </div>
+
+        <div class="divider-section"></div>
+
         <div class="main-text">
-            <span class="highlight">Метафора:</span> Титан, рождающий свет в пасти тьмы.
-        </div>
-
-        <div class="main-text">
-            <span class="highlight">Девиз:</span> «Из недр гравитационного коллапса — к излучению вселенского масштаба».
-        </div>
-
-        <div class="main-text">
-            <span class="highlight">Ключевые тезисы препарата:</span> Мощь, Ритм, Древность, Прорыв, Внутренний Стержень.
-        </div>
-
-        <div class="divider-line strong"></div>
-
-        <div class="subsection">
-            <h3 class="subsection-title">6.1. Ключевые темы</h3>
-            <div class="subsection-content">
-                Препарат <span class="highlight">Quasarum</span> не является веществом. Это воплощенный в гомеопатическом сигнатуре принцип колоссальной энергии, рождаемой в условиях экстремального давления. Его действие направлено на пробуждение «внутреннего квазара» человека — того ядра воли, творчества и жизненной силы, которое способно преодолеть любое сжатие и излучить свет.
-            </div>
-
-            <div class="content-block">
-                <h4 class="content-subtitle">Вот основные характеристики этого «сжатия»:</h4>
-
-                <div class="content-block">
-                    <h4 class="content-subtitle">1. Психологическое и Эмоциональное Сжатие (Стресс)</h4>
-                    <ul class="content-list">
-                        <li>Давление внешних обстоятельств (дедлайны, финансовые проблемы, обязательства), внутреннее давление (перфекционизм, самокритика, чувство долга), эмоциональные потрясения (горе, предательство).</li>
-                        <li><span class="highlight">Как ощущается:</span> Чувство загнанности в угол, ощущение, что мир «давит» со всех сторон, невозможность дышать полной грудью, ком в горле, скованность в плечах.</li>
-                    </ul>
-                </div>
-
-                <div class="content-block">
-                    <h4 class="content-subtitle">2. Экзистенциальное и Духовное Сжатие</h4>
-                    <ul class="content-list">
-                        <li>Кризис смысла, потеря жизненных ориентиров, ощущение пустоты и абсурдности существования. Давление от осознания собственной несвободы и ответственности («экзистенциальный вакуум»).</li>
-                        <li><span class="highlight">Как ощущается:</span> Чувство ловушки в собственной жизни, когда привычные ценности и убеждения больше не поддерживают, а рушатся, создавая тесноту для Духа.</li>
-                    </ul>
-                </div>
-
-                <div class="content-block">
-                    <h4 class="content-subtitle">3. Энергетическое и Творческое Сжатие</h4>
-                    <ul class="content-list">
-                        <li>Блокировка жизненной силы, когда энергия не может течь свободно. Подавление своих талантов, желаний, творческих порывов. Состояние «застоя», когда новые идеи и импульсы не могут пробиться наружу.</li>
-                        <li><span class="highlight">Как ощущается:</span> Ощущение «закупорки», тяжести, апатии. Состояние, когда «все хочешь, но ничего не можешь». Внутренний огонь есть, но ему не дают разгореться.</li>
-                    </ul>
-                </div>
-
-                <div class="content-block">
-                    <h4 class="content-subtitle">4. Социальное и Ролевое Сжатие</h4>
-                    <ul class="content-list">
-                        <li>Давление социальных норм, ожиданий семьи, коллег, общества. Необходимость носить маску, соответствовать роли, которая стала тесна (например, «идеальный сотрудник», «заботливая дочь»).</li>
-                        <li><span class="highlight">Как ощущается:</span> Ощущение себя в клетке, потеря собственного «Я» под грузом навязанных ролей. Чувство, что ты должен быть кем-то, кем не являешься.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="miasma-block">
-                <div class="miasma-title">Итог:</div>
-                <div class="subsection-content">
-                    «Сжатие» для Quasarum — это любая форма давления (внутреннего или внешнего), которая:
-                    <ul class="content-list">
-                        <li><span class="highlight">Ограничивает</span> экспансию и самовыражение личности.</li>
-                        <li><span class="highlight">Подавляет</span> внутренний источник силы и творчества.</li>
-                        <li><span class="highlight">Деформирует</span> естественную, свободную природу человека, заставляя его «сжиматься» в угоду обстоятельствам.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="main-text">
-                Таким образом, <span class="highlight">Quasarum</span> — это препарат не просто «от стресса», а от состояний тотального жизненного коллапса, когда личность доведена до предела сжатия и готова либо разрушиться, либо совершить квантовый скачок и родить свой «свет» — новое творчество, новую идентичность, новую жизненную силу.
-            </div>
-        </div>
-
-        <div class="divider-line"></div>
-
-        <div class="subsection">
-            <h3 class="subsection-title">6.2. Миазмы препарата</h3>
-            <div class="subsection-content">
-                Обоснование миазмов для Quasarum
-            </div>
-
-            <div class="miasma-block">
-                <div class="miasma-title">• Псора (при обессиленности):</div>
-                <div class="subsection-content">
-                    <span class="highlight">Quasarum</span> — это антимиазматическое средство для состояния глубочайшего энергетического коллапса, когда «внутренний квазар» человека потух. Он показан при апатии, отсутствии творчества, чувстве пустоты и неспособности генерировать жизненную силу. Препарат не просто добавляет энергии, он <span class="highlight">запускает</span> внутренний генератор, выводя из состояния псорического дефицита. Это исходное состояние, из которого Quasarum выводит пациента.
-                </div>
-            </div>
-
-            <div class="miasma-block">
-                <div class="miasma-title">• Сикотический миазм (неконтролируемый рост и расширение):</div>
-                <div class="subsection-content">
-                    Препарат ярко проявляет <span class="highlight">сикотическую динамику</span> в своем действии. Это видно в симптомах хаотичной экспансии («хочется бежать, что-то делать») и нарушении координации. Quasarum <span class="highlight">использует энергию этого миазма</span>, направляя ее из хаотичного роста в целенаправленное, мощное излучение и творчество.
-                </div>
-            </div>
-
-            <div class="miasma-block">
-                <div class="miasma-title">• Канцерный (раковый) миазм (глубокая тема трансформации «Я» в отношениях):</div>
-                <div class="subsection-content">
-                    Это ключевой миазм для понимания сценарных изменений. Канцерный миазм в своей основе имеет искаженные, напряженные взаимоотношения с другими (по мнению Яна Уотсона), где главная тема — <span class="highlight">влияние и контроль</span>.<br><br>
-                    Человек либо подавляет свою силу и право влиять (что ведет к болезни), либо проявляет ее тотально, жестко и деструктивно, «продавливая» свою правду, требуя, чтобы все было только по его законам. Это подобно квазару, который хаотично поглощает все вокруг. Quasarum гармонизирует энергию канцерного миазма, преобразуя подавленное или деструктивное стремление к контролю в <span class="highlight">осознанную, мощную и лишенную вины силу влияния</span>.
-                </div>
-            </div>
-
-            <div class="miasma-block">
-                <div class="miasma-title">• Туберкулиновый миазм (бегство от ограничений):</div>
-                <div class="subsection-content">
-                    Есть отчетливые черты. <span class="highlight">Сильное желание свободы, физической активности, и прорыва</span> — это чисто туберкулиновые стремления. <span class="highlight">Quasarum</span> можно рассматривать как средство для туберлинового состояния, доведенного до предела, когда бегство и поиск уже невозможны, и единственный выход — не сбежать, а, сжавшись, <span class="highlight">совершить взрывной прорыв на месте</span>.
-                </div>
-            </div>
-
-            <div class="miasma-block">
-                <div class="miasma-title">Итог:</div>
-                <div class="subsection-content">
-                    <span class="highlight">Quasarum</span> — это препарат, работающий на стыке <span class="highlight">Псоры (исходная точка), Сикоза (динамика) и Канцерным смазмом (основная тема взаимоотношений)</span>, с мощным <span class="highlight">Туберлиновым</span> импульсом к прорыву. Человек учится излучать свою силу как свет квазара — структурируя пространство, притягивая ресурсы и транслируя свои законы как Творец, а не как тиран.
-                </div>
-            </div>
-        </div>
-
-        <div class="divider-line"></div>
-
-        <div class="subsection">
-            <h3 class="subsection-title">6.3. Портрет пациента Quasarum</h3>
-
-            <div class="patient-portrait">
-                <div class="subsection-content">
-                    Это человек, ощущающий в себе огромный, но заблокированный потенциал. Внешне это может проявляться как депрессия, апатия и потеря смысла, однако в глубине души живет уверенность в своем предназначении влиять, творить и менять правила игры. Основная проблема — неспособность пробить "скорлупу" застоя и неуверенности.
-                </div>
-                <div class="subsection-content">
-                    Часто это состояние усугубляется внутренними конфликтами, связанными с несоответствием социальным ожиданиям («я должен быть сильным мужчиной» / «я должна быть мягкой женщиной»). Чувство вынужденности играть несвойственную роль дробит личность и блокирует энергию.
-                </div>
-                <div class="subsection-content">
-                    Когда доступ к силе наконец появляется, ее проявления могут быть сначала неуклюжими и излишне прямолинейными — подобно первому мощному импульсу квазара. Препарат помогает преобразовать эту грубую силу в осознанное и эффективное влияние.
-                </div>
-                <div class="main-text" style="margin-top: 15px;">
-                    <span class="highlight">Ключевой конфликт:</span> Разрыв между знанием о своей силе и невозможностью ее проявить.
-                </div>
-            </div>
+            Дифференциальная диагностика показывает, что Quasarum занимает уникальное место как среди космических препаратов, так и в ряду классических полихрестов, предлагая решение для случаев, когда подавленная мощь требует не просто высвобождения, а трансформации в активное творческое влияние.
         </div>
 
     </div>
