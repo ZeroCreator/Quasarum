@@ -498,3 +498,60 @@ body {
         padding: 0 10px 10px;
     }
 }
+
+/* Стили для Telegram ссылки в футере */
+.footer-right a {
+    color: #d8d8f0 !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    opacity: 1;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.footer-right a:hover {
+    color: #a0a0ff !important;
+    transform: translateY(-1px);
+}
+
+.footer-right img {
+    width: 20px !important;
+    height: 20px !important;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.footer-right a:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Адаптивность для Telegram ссылки */
+@media (max-width: 768px) {
+    .footer-right a {
+        font-size: 15px !important;
+        gap: 8px !important;
+    }
+
+    .footer-right img {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-right a {
+        font-size: 14px !important;
+        gap: 6px !important;
+    }
+
+    .footer-right img {
+        width: 16px !important;
+        height: 16px !important;
+    }
+}
