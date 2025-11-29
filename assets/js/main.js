@@ -3,7 +3,7 @@ class App {
         this.sidebar = document.getElementById('sidebar');
         this.overlay = document.getElementById('sidebarOverlay');
         this.currentChapter = 1;
-        this.totalChapters = 9;
+        this.totalChapters = 11;
         
         this.init();
     }
@@ -13,6 +13,34 @@ class App {
         this.bindEvents();
         this.loadChapter(this.currentChapter);
         this.updateFooterYear();
+        this.initTheme();
+    }
+
+    // Переключение тем
+    initTheme() {
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+
+        // Установка начальной темы
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-theme');
+            themeToggle.textContent = '🌙'; // На светлой теме показываем луну
+        } else {
+            themeToggle.textContent = '☀️'; // На темной теме показываем солнце
+        }
+
+        // Обработчик переключения темы
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+
+            if (document.body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙'; // Переключаем на луну
+            } else {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️'; // Переключаем на солнце
+            }
+        });
     }
 
     async loadTOC() {

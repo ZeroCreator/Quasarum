@@ -7,14 +7,12 @@
             margin: 20px 0;
             border-radius: 0 8px 8px 0;
         }
-
         .miasma-title {
             font-size: 16px;
             color: #8a7aff;
             font-weight: 600;
             margin-bottom: 10px;
         }
-
         .patient-portrait {
             background: linear-gradient(135deg, rgba(138, 122, 255, 0.1) 0%, rgba(74, 58, 255, 0.05) 100%);
             border: 1px solid rgba(138, 122, 255, 0.3);
@@ -22,7 +20,6 @@
             padding: 25px;
             margin: 25px 0;
         }
-
         .core-principles {
             background: rgba(138, 122, 255, 0.1);
             border: 1px solid #8a7aff;
@@ -30,19 +27,32 @@
             padding: 20px;
             margin: 20px 0;
         }
-
         .principle-item {
             margin-bottom: 15px;
             padding-left: 15px;
             border-left: 3px solid #8a7aff;
         }
-
+        /* Убираем вложенность */
+        .content-block .content-block {
+            border-left: none;
+            margin-left: 25px;
+            padding-left: 0;
+            background: rgba(20, 20, 35, 0.4);
+        }
+        /* Отделяем заголовок от контента */
+        .content-block > .content-subtitle:first-child {
+            margin-bottom: 25px;
+            display: block;
+        }
         @media (max-width: 768px) {
             .miasma-block,
             .patient-portrait,
             .core-principles {
                 padding: 15px;
                 margin: 15px 0;
+            }
+            .content-block .content-block {
+                margin-left: 15px;
             }
         }
     </style>
@@ -73,7 +83,7 @@
         </div>
 
         <div class="core-principles">
-            <h4 class="content-subtitle">Ключевые тезисы препарата:</h4>
+            <h4 class="content-subtitle" style="margin: 10px 0 10px 0; padding-left: 15px;">Ключевые тезисы препарата:</h4>
             <div class="principle-item"><strong>Мощь</strong> - фундаментальная сила и энергия</div>
             <div class="principle-item"><strong>Ритм</strong> - пульсация и циклическая природа энергии</div>
             <div class="principle-item"><strong>Древность</strong> - связь с изначальными космическими силами</div>
@@ -90,9 +100,8 @@
                 Препарат <span class="highlight">Quasarum</span> не является веществом. Это воплощенный в гомеопатическом сигнатуре принцип колоссальной энергии, рождаемой в условиях экстремального давления. Его действие направлено на пробуждение «внутреннего квазара» человека — того ядра воли, творчества и жизненной силы, которое способно преодолеть любое сжатие и излучить свет.
             </div>
 
+            <h4 class="content-subtitle" style="margin: 30px 0 20px 0; padding-left: 15px;">Вот основные характеристики этого «сжатия»:</h4>
             <div class="content-block">
-                <h4 class="content-subtitle">Вот основные характеристики этого «сжатия»:</h4>
-
                 <div class="content-block">
                     <h4 class="content-subtitle">1. Психологическое и Эмоциональное Сжатие (Стресс)</h4>
                     <ul class="content-list">

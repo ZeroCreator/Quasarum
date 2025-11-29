@@ -7,18 +7,15 @@
             border-radius: 8px;
             border-left: 3px solid #44446a;
         }
-
         .symptom-indication {
             font-weight: 600;
             color: #a0a0ff;
             margin-bottom: 8px;
         }
-
         .symptom-action {
             color: #d8d8f0;
             font-style: italic;
         }
-
         .content-block {
             margin: 20px 0;
             padding: 15px;
@@ -26,23 +23,19 @@
             border-radius: 8px;
             border-left: 3px solid #44446a;
         }
-
         .content-subtitle {
             font-size: 16px;
             color: #8a7aff;
             margin-bottom: 12px;
             font-weight: 600;
         }
-
         .content-block .content-list {
             margin: 10px 0;
         }
-
         .content-block .content-list li {
             margin-bottom: 10px;
             line-height: 1.6;
         }
-
         .modality-block {
             background: linear-gradient(135deg, rgba(138, 122, 255, 0.1) 0%, rgba(74, 58, 255, 0.05) 100%);
             border: 1px solid rgba(138, 122, 255, 0.3);
@@ -50,11 +43,9 @@
             padding: 25px;
             margin: 25px 0;
         }
-
         .modality-section {
             margin-bottom: 20px;
         }
-
         .modality-title {
             font-size: 16px;
             color: #8a7aff;
@@ -63,7 +54,6 @@
             border-left: 3px solid #8a7aff;
             padding-left: 12px;
         }
-
         .key-item {
             background: rgba(30, 30, 50, 0.8);
             border-left: 4px solid #8a7aff;
@@ -71,13 +61,44 @@
             margin: 12px 0;
             border-radius: 0 8px 8px 0;
         }
-
         .key-category {
             font-weight: 600;
             color: #a0a0ff;
             margin-bottom: 8px;
         }
-
+        /* Стили для светлой темы */
+        body.light-theme .symptom-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 3px solid #d1d1e0;
+        }
+        body.light-theme .symptom-indication {
+            color: #6a5acd;
+        }
+        body.light-theme .symptom-action {
+            color: #5a5a7a;
+        }
+        body.light-theme .modality-block {
+            background: linear-gradient(135deg, rgba(138, 122, 255, 0.15) 0%, rgba(74, 58, 255, 0.08) 100%);
+            border: 1px solid rgba(138, 122, 255, 0.4);
+        }
+        body.light-theme .modality-title {
+            color: #6a5acd;
+            border-left: 3px solid #6a5acd;
+        }
+        body.light-theme .key-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid #6a5acd;
+        }
+        body.light-theme .key-category {
+            color: #6a5acd;
+        }
+        /* Светлая тема для списков внутри content-block */
+        body.light-theme .content-block .content-list li {
+            color: #3a3a3a;
+        }
+        body.light-theme .content-block .content-list li:before {
+            color: #6a5acd;
+        }
         @media (max-width: 768px) {
             .symptom-item,
             .content-block,

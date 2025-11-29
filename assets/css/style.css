@@ -101,6 +101,7 @@ body {
     display: block;
 }
 
+/* Кнопка оглавление */
 .menu-toggle {
     position: fixed;
     top: 20px;
@@ -118,16 +119,51 @@ body {
     font-weight: 600;
     box-shadow: 0 4px 12px rgba(138, 122, 255, 0.3);
     min-width: 140px;
+    padding: 12px 18px;
+    height: auto;
+    line-height: 1.4;
 }
 
-.sidebar.active ~ .menu-toggle {
-    left: 380px;
+/* Кнопка переключения темы */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    left: 190px;
+    z-index: 1001;
+    background: rgba(138, 122, 255, 0.95);
+    border: none;
+    color: white;
+    padding: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(138, 122, 255, 0.3);
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* Убираем лишний межстрочный интервал */
 }
 
-.menu-toggle:hover {
+
+.menu-toggle:hover,
+.theme-toggle:hover {
     background: rgba(138, 122, 255, 1);
-    transform: translateX(5px);
+    transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(138, 122, 255, 0.4);
+}
+
+/* Сдвигаем кнопки при активном сайдбаре */
+.sidebar.active ~ .menu-toggle {
+    left: 400px;
+}
+
+.sidebar.active ~ .theme-toggle {
+    left: 560px; /* 400px (меню) + 140px (ширина меню) + 20px (пробел) */
 }
 
 .menu-header {
@@ -223,7 +259,7 @@ body {
 
 .page-container {
     position: relative;
-    flex: 1; /* Растягивается на всю доступную высоту */
+    flex: 1;
     display: flex;
     flex-direction: column;
     background:
@@ -234,7 +270,7 @@ body {
     box-shadow: 0 0 50px rgba(100, 80, 255, 0.1);
     margin: 5px auto 20px;
     padding: 25mm 20mm;
-    min-height: auto; /* УБИРАЕМ фиксированную высоту */
+    min-height: auto;
     overflow: hidden;
 }
 
@@ -265,14 +301,14 @@ body {
 .content-wrapper {
     position: relative;
     z-index: 2;
-    flex: 1; /* Растягивается на всю высоту page-container */
+    flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 0; /* Важно для работы скролла в flex-контейнере */
+    min-height: 0;
 }
 
 .chapter-container {
-    flex: 1; /* Занимает все доступное пространство */
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -318,185 +354,16 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Эффекты при наведении для интерактивности */
+/* Эффекты при наведении */
 .footer-left:hover,
 .footer-right:hover {
-    color: #a0a0ff; /* Яркий цвет при наведении */
+    color: #a0a0ff;
     transition: color 0.3s ease;
 }
 
 .header-content em:hover {
-    color: #ffffff; /* Белый цвет при наведении */
+    color: #ffffff;
     transition: color 0.3s ease;
-}
-
-/* Адаптивность */
-@media (max-width: 1024px) {
-    .page-container {
-        padding: 20mm 15mm;
-    }
-
-    .header-content em {
-        font-size: 15px;
-    }
-
-    .footer-content {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 320px;
-        left: -320px;
-        padding: 70px 20px 30px 20px;
-    }
-
-    .sidebar.active ~ .menu-toggle {
-        left: 340px;
-    }
-
-    .menu-title {
-        font-size: 24px;
-    }
-
-    .menu-subtitle {
-        font-size: 14px;
-    }
-
-    .toc-title {
-        font-size: 15px;
-    }
-
-    .toc-link {
-        font-size: 15px;
-        padding: 10px 15px;
-    }
-
-    .site-header {
-        padding: 12px 0;
-        margin-top: 10px;
-    }
-
-    .header-content {
-        text-align: center;
-        padding-right: 20px;
-        padding-left: 60px;
-    }
-
-    .header-content em {
-        font-size: 14px;
-    }
-
-    .site-footer {
-        padding: 20px 0;
-    }
-
-    .footer-content {
-        font-size: 14px;
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-     .toc-title {
-        font-size: 13px;
-    }
-
-    .toc-link {
-        font-size: 13px;
-        padding: 8px 12px;
-    }
-
-    .main-content {
-        padding: 0 15px 15px;
-    }
-
-    .page-container {
-        padding: 15mm 10mm;
-        margin: 5px auto 15px;
-    }
-
-    .header-content {
-        text-align: center;
-        padding-right: 20px;
-        padding-left: 60px;
-    }
-
-    .menu-toggle {
-        top: 17px;
-        left: 20px;
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .sidebar {
-        width: 280px;
-        left: -280px;
-        padding: 60px 15px 25px 15px;
-    }
-
-    .sidebar.active ~ .menu-toggle {
-        left: 295px;
-    }
-
-    .menu-title {
-        font-size: 22px;
-    }
-
-    .menu-subtitle {
-        font-size: 13px;
-    }
-
-    .toc-title {
-        font-size: 14px;
-    }
-
-    .toc-link {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    .page-container {
-        padding: 10mm 8mm;
-        margin: 5px auto 10px;
-    }
-
-    .header-content em {
-        font-size: 13px;
-    }
-
-    .site-header {
-        margin-top: 10px;
-    }
-
-    .footer-content {
-        font-size: 13px;
-    }
-
-    .site-footer {
-        padding: 15px 0;
-    }
-
-    .menu-toggle {
-        top: 12px;
-        left: 15px;
-        padding: 8px 12px;
-        font-size: 14px;
-        min-width: 110px;
-    }
-
-    .main-content {
-        padding: 0 10px 10px;
-    }
 }
 
 /* Стили для Telegram ссылки в футере */
@@ -531,27 +398,286 @@ body {
     transform: scale(1.1);
 }
 
-/* Адаптивность для Telegram ссылки */
-@media (max-width: 768px) {
-    .footer-right a {
-        font-size: 15px !important;
-        gap: 8px !important;
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .page-container {
+        padding: 20mm 15mm;
     }
+    .header-content em {
+        font-size: 15px;
+    }
+    .footer-content {
+        font-size: 15px;
+    }
+}
 
-    .footer-right img {
-        width: 18px !important;
-        height: 18px !important;
+@media (max-width: 768px) {
+    .sidebar {
+        width: 320px;
+        left: -320px;
+        padding: 70px 20px 30px 20px;
+    }
+    .menu-title {
+        font-size: 24px;
+    }
+    .menu-subtitle {
+        font-size: 14px;
+    }
+    .toc-title {
+        font-size: 15px;
+    }
+    .toc-link {
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+    .site-header {
+        padding: 12px 0;
+        margin-top: 10px;
+    }
+    .header-content {
+        text-align: center;
+        padding-right: 20px;
+        padding-left: 60px;
+    }
+    .header-content em {
+        font-size: 14px;
+    }
+    .site-footer {
+        padding: 20px 0;
+    }
+    .footer-content {
+        font-size: 14px;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .toc-title {
+        font-size: 13px;
+    }
+    .toc-link {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    .main-content {
+        padding: 0 15px 15px;
+    }
+    .page-container {
+        padding: 15mm 10mm;
+        margin: 5px auto 15px;
+    }
+    .header-content {
+        text-align: center;
+        padding-right: 20px;
+        padding-left: 180px;
+    }
+    .menu-toggle {
+        top: 17px;
+        left: 20px;
+        padding: 10px 15px;
+        font-size: 13px;
+        min-width: 120px;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    .theme-toggle {
+        top: 17px;
+        left: 150px;
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+    }
+    .sidebar.active ~ .menu-toggle {
+        left: 340px;
+    }
+    .sidebar.active ~ .theme-toggle {
+        left: 470px;
     }
 }
 
 @media (max-width: 480px) {
+    .sidebar {
+        width: 280px;
+        left: -280px;
+        padding: 60px 15px 25px 15px;
+    }
+    .sidebar.active ~ .menu-toggle {
+        left: 295px;
+    }
+    .menu-title {
+        font-size: 22px;
+    }
+    .menu-subtitle {
+        font-size: 13px;
+    }
+    .toc-title {
+        font-size: 14px;
+    }
+    .toc-link {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    .page-container {
+        padding: 10mm 8mm;
+        margin: 5px auto 10px;
+    }
+    .header-content {
+        text-align: center;
+        padding-right: 15px;
+        padding-left: 150px;
+    }
+    .header-content em {
+        font-size: 13px;
+    }
+    .site-header {
+        margin-top: 10px;
+    }
+    .footer-content {
+        font-size: 13px;
+    }
+    .site-footer {
+        padding: 15px 0;
+    }
+    .menu-toggle {
+        top: 12px;
+        left: 15px;
+        padding: 8px 12px;
+        font-size: 14px;
+        min-width: 100px;
+    }
+    .main-content {
+        padding: 0 10px 10px;
+    }
+    .theme-toggle {
+        top: 12px;
+        left: 125px;
+        font-size: 16px;
+        width: 35px;
+        height: 35px;
+    }
+    .sidebar.active ~ .menu-toggle {
+        left: 295px;
+    }
+    .sidebar.active ~ .theme-toggle {
+        left: 405px;
+    }
     .footer-right a {
         font-size: 14px !important;
         gap: 6px !important;
     }
-
     .footer-right img {
         width: 16px !important;
         height: 16px !important;
     }
+}
+
+/* ========================================================================= */
+/* СВЕТЛАЯ ТЕМА */
+/* ========================================================================= */
+
+body.light-theme {
+    background: #e8eaf6;
+    color: #2a2a2a;
+}
+
+body.light-theme .site-header {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid #d1d1e0;
+}
+
+body.light-theme .site-header::before {
+    background: linear-gradient(135deg, rgba(138, 122, 255, 0.15) 0%, transparent 50%);
+}
+
+body.light-theme .header-content em {
+    color: #5a5a7a;
+}
+
+body.light-theme .page-container {
+    background:
+        radial-gradient(circle at 20% 80%, #ffffff 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, #fafaff 0%, transparent 50%),
+        linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+    border: 1px solid #d1d1e0;
+    box-shadow: 0 0 50px rgba(100, 80, 255, 0.1);
+}
+
+body.light-theme .site-footer {
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 1px solid #d1d1e0;
+}
+
+body.light-theme .site-footer::before {
+    background: linear-gradient(135deg, transparent 0%, rgba(138, 122, 255, 0.15) 100%);
+}
+
+body.light-theme .footer-content {
+    color: #5a5a7a;
+}
+
+body.light-theme .footer-right a {
+    color: #5a5a7a !important;
+}
+
+body.light-theme .footer-right a:hover {
+    color: #8a7aff !important;
+}
+
+body.light-theme .footer-right img {
+    filter: brightness(0) saturate(100%) opacity(0.8);
+}
+
+/* Кнопка переключения темы в светлой теме */
+body.light-theme .theme-toggle {
+    background: rgba(138, 122, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(138, 122, 255, 0.25);
+}
+
+body.light-theme .theme-toggle:hover {
+    background: rgba(138, 122, 255, 1);
+    box-shadow: 0 6px 16px rgba(138, 122, 255, 0.35);
+}
+
+/* Светлая тема для сайдбара */
+body.light-theme .sidebar {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5ff 100%);
+    border-right: 1px solid #d1d1e0;
+}
+
+body.light-theme .menu-header {
+    border-bottom: 1px solid #e0e0f0;
+}
+
+body.light-theme .menu-title {
+    color: #6a5acd;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .menu-subtitle {
+    color: #5a5a7a;
+}
+
+body.light-theme .toc-title {
+    color: #8a7aff;
+    border-left: 3px solid #8a7aff;
+}
+
+body.light-theme .toc-link {
+    color: #5a5a7a;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(138, 122, 255, 0.2);
+}
+
+body.light-theme .toc-link:hover {
+    color: #6a5acd;
+    background: rgba(138, 122, 255, 0.1);
+    border-color: #8a7aff;
+}
+
+body.light-theme .toc-link.active {
+    color: #6a5acd;
+    background: rgba(138, 122, 255, 0.15);
+    border-left: 4px solid #8a7aff;
 }

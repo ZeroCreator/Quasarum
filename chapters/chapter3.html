@@ -7,50 +7,42 @@
             margin: 25px 0;
             border-radius: 0 12px 12px 0;
         }
-
         .method-title {
             font-size: 18px;
             color: #8a7aff;
             margin-bottom: 15px;
             font-weight: 600;
         }
-
         .method-details {
             margin: 15px 0;
         }
-
         .detail-item {
             margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
         }
-
         .detail-label {
             font-weight: 600;
             color: #a0a0ff;
             min-width: 120px;
             margin-right: 15px;
         }
-
         .detail-content {
             color: #d8d8f0;
             flex: 1;
             line-height: 1.6;
         }
-
         .preparation-steps {
             background: rgba(30, 30, 50, 0.6);
             border-radius: 8px;
             padding: 20px;
             margin: 20px 0;
         }
-
         .step-item {
             margin-bottom: 15px;
             padding-left: 20px;
             position: relative;
         }
-
         .step-item:before {
             content: "◦";
             color: #8a7aff;
@@ -58,17 +50,49 @@
             left: 0;
             font-size: 18px;
         }
-
         @media (max-width: 768px) {
             .protocol-method {
                 padding: 20px;
                 margin: 20px 0;
             }
-
             .detail-item {
                 flex-direction: column;
             }
-
+            .detail-label {
+                min-width: auto;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+        }
+        /* СВЕТЛАЯ ТЕМА */
+        body.light-theme .protocol-method {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid #6a5acd;
+        }
+        body.light-theme .method-title {
+            color: #6a5acd;
+        }
+        body.light-theme .detail-label {
+            color: #5a4acd;
+        }
+        body.light-theme .detail-content {
+            color: #4a4a4a;
+            font-weight: 500;
+        }
+        body.light-theme .preparation-steps {
+            background: rgba(248, 249, 255, 0.8);
+        }
+        body.light-theme .step-item:before {
+            color: #6a5acd;
+        }
+        @media (max-width: 768px) {
+            .protocol-method {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            .detail-item {
+                flex-direction: column;
+            }
             .detail-label {
                 min-width: auto;
                 margin-right: 0;
@@ -162,7 +186,7 @@
             </div>
         </div>
 
-        <div class="divider-line strong"></div>
+        <div class="section-divider"></div>
 
         <div class="decorative-quote">
             Двойная методология исследования позволила получить многомерную картину патогенеза Quasarum — от мягкого кумулятивного эффекта до мощного острого отклика, раскрывая различные грани этого космического препарата.
