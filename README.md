@@ -2,7 +2,7 @@
 
 # 🌌 QUASARUM - Космический патогенез мощи и трансформации
 
-![QUASARUM Banner](https://via.placeholder.com/1200x400/0a0a1a/8a7aff?text=QUASARUM+-+Космический+патогенез)
+![QUASARUM Banner](quasarum_banner.jpg)
 
 **Исследование гомеопатических принципов через призму астрофизики квазаров**
 
@@ -24,41 +24,12 @@ QUASARUM — это инновационный лендинг, представ�
 
 ---
 
-## ✨ Особенности
-
-### 🌠 Космический дизайн
-- 🎨 **Иммерсивная цветовая палитра** на основе глубоких космических тонов
-- 💫 **Градиенты и тени** создающие эффект глубины пространства
-- 🪐 **Анимированные космические элементы** для усиления атмосферы
-
-### 📚 Интерактивное оглавление
-- 📖 **Плавное боковое меню** с тактильной обратной связью
-- 🔄 **Динамическая навигация** между главами
-- 📱 **Адаптивный дизайн** для всех устройств
-
-### 🎨 Премиум типографика
-- 🔠 **Кастомные шрифты** Georgia для элегантности
-- 🎯 **Стилизованные заголовки** с градиентными эффектами
-- 💠 **Буквицы и цитаты** в академическом стиле
-
-### ⚡ Техническое совершенство
-- 🧹 **Чистый ванильный код** без зависимостей
-- 🚀 **Оптимизированная производительность**
-- ♿ **Semantic HTML** для лучшей доступности
-
----
-
 ## 🛠 Технологии
 
 **Фронтенд:**
 - ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)
 - ![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=flat&logo=css3&logoColor=white)
 - ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=flat&logo=javascript&logoColor=black)
-
-**Стилизация:**
-- CSS Grid & Flexbox для адаптивных layout'ов
-- CSS Transitions & Transforms для плавных анимаций
-- CSS Gradients для визуальных эффектов
 
 ---
 
@@ -95,35 +66,31 @@ http://localhost:8000
 ## 📁 Структура проекта
 
 ```text
-quasarum/
+QUASARUM/
 ├── 📄 index.html                 # Главная страница лендинга
 ├── 📖 README.md                  # Документация проекта
+├── 🖼️ quasarum_banner.jpg       # Баннер проекта
 ├── 📁 assets/                    # Ресурсы проекта
 │   ├── 🎨 css/
-│   │   └── style.css             # Основные стили
+│   │   ├── style.css             # Основные стили
+│   │   └── chapters.css          # Стили глав
 │   ├── ⚡ js/
 │   │   └── main.js               # JavaScript функционал
 │   ├── 🖼️ images/               # Изображения и иконки
-│   └── 🔤 fonts/                 # Кастомные шрифты
-├── 📚 pages/                  # Контент глав
-│   ├── pages1.html
-│   ├── pages2.html
-│   └── ...
-└── 📄 LICENSE                    # Лицензия MIT
+│   │   ├── quasar1.jpg - quasar12.jpg
+│   │   └── telegram.png
+│   └── 📚 components/
+│       └── toc.html              # Компонент оглавления
+├── 📁 chapters/                  # Контент глав
+│   ├── chapter1.html - chapter11.html
+│   ├── gallery.html
+│   └── references.html
+├── 📄 LICENSE                    # Лицензия CC BY-NC-ND 4.0
+└── 🎯 favicon.png                # Иконка сайта
 ```
 
 --- 
 ## 🎯 Демо
-
-<div align="center">
-
-🖥️ Desktop версия
-https://via.placeholder.com/800x450/1a1a2a/8a7aff?text=Desktop+Version+-+QUASARUM
-
-📱 Mobile версия
-https://via.placeholder.com/400x700/1a1a2a/8a7aff?text=Mobile+Version+-+QUASARUM
-
-</div>
 
 🌐 Живая демонстрация: https://quasarum.vercel.app/
 
@@ -156,27 +123,8 @@ npm run deploy
 
 ---
 
-## 📚 Ключевые разделы
-
-Часть I: Квазар как архетип
-Глава 1: Загадочные маяки Вселенной
-
-Глава 2: От небесной механики к гомеопатическому принципу
-
-Часть II: Фундаментальные принципы
-Глава 3: Теоретические основы
-
-Глава 4: Детальная симптоматология
-
-Часть III: Практическое применение
-Глава 5: Протокол прувинга
-
-Глава 6: Ключевые показания
-
----
-
 ## 📄 Лицензия
-Этот проект распространяется под лицензией MIT. Подробнее см. в файле LICENSE.
+Этот проект распространяется под лицензией Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International. Подробнее см. в файле LICENSE.
 
 ---
 
