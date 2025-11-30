@@ -1,17 +1,17 @@
 <div class="chapter-content">
     <style>
         .miasma-block {
-            background: rgba(30, 30, 50, 0.8);
-            border-left: 4px solid #8a7aff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(26, 26, 42, 0.6);
+            border-radius: 8px;
+            border-left: 3px solid #44446a;
         }
         .miasma-title {
-            font-size: 16px;
-            color: #8a7aff;
             font-weight: 600;
-            margin-bottom: 10px;
+            color: #a0a0ff;
+            margin-bottom: 8px;
+            font-size: 16px;
         }
         .patient-portrait {
             background: linear-gradient(135deg, rgba(138, 122, 255, 0.1) 0%, rgba(74, 58, 255, 0.05) 100%);
@@ -32,27 +32,89 @@
             padding-left: 15px;
             border-left: 3px solid #8a7aff;
         }
-        /* Убираем вложенность */
-        .content-block .content-block {
-            border-left: none;
-            margin-left: 25px;
-            padding-left: 0;
-            background: rgba(20, 20, 35, 0.4);
+        .content-block {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(26, 26, 42, 0.5);
+            border-radius: 8px;
+            border-left: 3px solid #44446a;
         }
-        /* Отделяем заголовок от контента */
-        .content-block > .content-subtitle:first-child {
-            margin-bottom: 25px;
-            display: block;
+        .content-subtitle {
+            font-size: 16px;
+            color: #8a7aff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .content-block .content-list {
+            margin: 10px 0;
+        }
+        .content-block .content-list li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        /* Стили для светлой темы */
+        body.light-theme .miasma-block {
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 3px solid #d1d1e0;
+        }
+        body.light-theme .miasma-title {
+            color: #6a5acd;
+        }
+        body.light-theme .patient-portrait {
+            background: linear-gradient(135deg, rgba(138, 122, 255, 0.15) 0%, rgba(74, 58, 255, 0.08) 100%);
+            border: 1px solid rgba(138, 122, 255, 0.4);
+        }
+        body.light-theme .core-principles {
+            background: rgba(138, 122, 255, 0.15);
+            border: 1px solid #6a5acd;
+        }
+        body.light-theme .principle-item {
+            border-left: 3px solid #6a5acd;
+        }
+        body.light-theme .content-block {
+            background: rgba(255, 255, 255, 0.8);
+            border-left: 3px solid #d1d1e0;
+        }
+        body.light-theme .content-subtitle {
+            color: #6a5acd;
+        }
+        /* Светлая тема для списков внутри content-block */
+        body.light-theme .content-block .content-list li {
+            color: #3a3a3a;
+        }
+        body.light-theme .content-block .content-list li:before {
+            color: #6a5acd;
+        }
+        /* Специальный стиль для итоговых блоков */
+        .summary-block {
+            background: linear-gradient(135deg, rgba(138, 122, 255, 0.15) 0%, rgba(74, 58, 255, 0.1) 100%);
+            border: 2px solid rgba(138, 122, 255, 0.4);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .summary-title {
+            font-size: 18px;
+            color: #8a7aff;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        body.light-theme .summary-block {
+            background: linear-gradient(135deg, rgba(138, 122, 255, 0.2) 0%, rgba(74, 58, 255, 0.15) 100%);
+            border: 2px solid rgba(138, 122, 255, 0.5);
+        }
+        body.light-theme .summary-title {
+            color: #6a5acd;
         }
         @media (max-width: 768px) {
             .miasma-block,
             .patient-portrait,
-            .core-principles {
+            .core-principles,
+            .content-block,
+            .summary-block {
                 padding: 15px;
                 margin: 15px 0;
-            }
-            .content-block .content-block {
-                margin-left: 15px;
             }
         }
     </style>
@@ -60,7 +122,7 @@
     <div class="chapter-main">
         <!-- Картинка вверху -->
         <div class="chapter-image">
-            <img src="assets/images/quasar11.jpg" alt="Materia Medica Quasarum">
+            <img src="assets/images/titan.jpg" alt="Титан, рождающий свет в пасти тьмы">
             <div class="image-caption">Фундаментальные принципы и ядро препарата Quasarum</div>
         </div>
 
@@ -86,57 +148,57 @@
             <h4 class="content-subtitle" style="margin: 10px 0 10px 0; padding-left: 15px;">Ключевые тезисы препарата:</h4>
             <div class="principle-item"><strong>Мощь</strong> - фундаментальная сила и энергия</div>
             <div class="principle-item"><strong>Ритм</strong> - пульсация и циклическая природа энергии</div>
-            <div class="principle-item"><strong>Древность</strong> - связь с изначальными космическими силами</div>
+            <div class="principle-item"><strong>Глубина</strong> - связь с изначальными космическими силами</div>
             <div class="principle-item"><strong>Прорыв</strong> - преодоление ограничений и барьеров</div>
             <div class="principle-item"><strong>Внутренний Стержень</strong> - центральный источник силы и стабильности</div>
         </div>
 
-        <div class="divider-line strong"></div>
+        <div class="section-divider"></div>
 
         <div class="subsection">
-            <h3 class="subsection-title">8.1. Ключевые темы</h3>
+            <h3 class="subsection-title">8.1. Ключевые темы: Обоснование патогенеза через призму архетипа</h3>
             <div class="subsection-content">
-                <span class="highlight">Обоснование патогенеза через призму архетипа</span><br><br>
-                Препарат <span class="highlight">Quasarum</span> не является веществом. Это воплощенный в гомеопатическом сигнатуре принцип колоссальной энергии, рождаемой в условиях экстремального давления. Его действие направлено на пробуждение «внутреннего квазара» человека — того ядра воли, творчества и жизненной силы, которое способно преодолеть любое сжатие и излучить свет.
+                <span class="highlight">Quasarum</span> не является веществом; это воплощенный в гомеопатической сигнатуре принцип трансформации давления в излучение. Его действие направлено на пробуждение «внутреннего квазара» человека — того ядра воли и творческой силы, которое способно преодолеть любое сжатие и явить миру свой свет.
             </div>
 
-            <h4 class="content-subtitle" style="margin: 30px 0 20px 0; padding-left: 15px;">Вот основные характеристики этого «сжатия»:</h4>
+            <div class="main-text" style="margin: 20px 0;">
+                «Сжатие» — основное состояние патогенеза <span class="highlight">Quasarum</span> — проявляется на четырех уровнях:
+            </div>
+
             <div class="content-block">
-                <div class="content-block">
-                    <h4 class="content-subtitle">1. Психологическое и Эмоциональное Сжатие (Стресс)</h4>
-                    <ul class="content-list">
-                        <li>Давление внешних обстоятельств (дедлайны, финансовые проблемы, обязательства), внутреннее давление (перфекционизм, самокритика, чувство долга), эмоциональные потрясения (горе, предательство).</li>
-                        <li><span class="highlight">Как ощущается:</span> Чувство загнанности в угол, ощущение, что мир «давит» со всех сторон, невозможность дышать полной грудью, ком в горле, скованность в плечах.</li>
-                    </ul>
-                </div>
-
-                <div class="content-block">
-                    <h4 class="content-subtitle">2. Экзистенциальное и Духовное Сжатие</h4>
-                    <ul class="content-list">
-                        <li>Кризис смысла, потеря жизненных ориентиров, ощущение пустоты и абсурдности существования. Давление от осознания собственной несвободы и ответственности («экзистенциальный вакуум»).</li>
-                        <li><span class="highlight">Как ощущается:</span> Чувство ловушки в собственной жизни, когда привычные ценности и убеждения больше не поддерживают, а рушатся, создавая тесноту для Духа.</li>
-                    </ul>
-                </div>
-
-                <div class="content-block">
-                    <h4 class="content-subtitle">3. Энергетическое и Творческое Сжатие</h4>
-                    <ul class="content-list">
-                        <li>Блокировка жизненной силы, когда энергия не может течь свободно. Подавление своих талантов, желаний, творческих порывов. Состояние «застоя», когда новые идеи и импульсы не могут пробиться наружу.</li>
-                        <li><span class="highlight">Как ощущается:</span> Ощущение «закупорки», тяжести, апатии. Состояние, когда «все хочешь, но ничего не можешь». Внутренний огонь есть, но ему не дают разгореться.</li>
-                    </ul>
-                </div>
-
-                <div class="content-block">
-                    <h4 class="content-subtitle">4. Социальное и Ролевое Сжатие</h4>
-                    <ul class="content-list">
-                        <li>Давление социальных норм, ожиданий семьи, коллег, общества. Необходимость носить маску, соответствовать роли, которая стала тесна (например, «идеальный сотрудник», «заботливая дочь»).</li>
-                        <li><span class="highlight">Как ощущается:</span> Ощущение себя в клетке, потеря собственного «Я» под грузом навязанных ролей. Чувство, что ты должен быть кем-то, кем не являешься.</li>
-                    </ul>
-                </div>
+                <div class="content-subtitle">1. Психологическое и эмоциональное сжатие (Стресс)</div>
+                <ul class="content-list">
+                    <li><span class="highlight">Источники:</span> Давление внешних обстоятельств (дедлайны, финансовые проблемы, обязательства), внутренний прессинг (перфекционизм, самокритика, чувство долга), эмоциональные потрясения.</li>
+                    <li><span class="highlight">Ощущение:</span> Чувство загнанности в угол, ощущение, что мир «давит» со всех сторон, невозможность дышать полной грудью.</li>
+                </ul>
             </div>
 
-            <div class="miasma-block">
-                <div class="miasma-title">Итог:</div>
+            <div class="content-block">
+                <div class="content-subtitle">2. Экзистенциальное и духовное сжатие</div>
+                <ul class="content-list">
+                    <li><span class="highlight">Источники:</span> Кризис смысла, потеря жизненных ориентиров, ощущение пустоты и абсурдности существования. Давление от осознания собственной несвободы и ответственности («экзистенциальный вакуум»).</li>
+                    <li><span class="highlight">Ощущение:</span> Чувство ловушки в собственной жизни, крушение прежних ценностей и убеждений, создающее невыносимую тесноту для Духа.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <div class="content-subtitle">3. Энергетическое и творческое сжатие</div>
+                <ul class="content-list">
+                    <li><span class="highlight">Источники:</span> Блокировка жизненной силы, когда энергия не может течь свободно. Подавление талантов, желаний, творческих порывов. Состояние «застоя», когда новые идеи и импульсы не могут пробиться наружу.</li>
+                    <li><span class="highlight">Ощущение:</span> Чувство «закупорки», тяжести, апатии; состояние, когда «все хочешь, но ничего не можешь». Внутренний огонь есть, но ему не дают разгореться.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <div class="content-subtitle">4. Социальное и Ролевое Сжатие</div>
+                <ul class="content-list">
+                    <li><span class="highlight">Источники:</span> Давление социальных норм, ожиданий семьи, коллег, общества. Необходимость носить маску, соответствовать роли, которая стала тесна (например, «идеальный сотрудник», «заботливая дочь»).</li>
+                    <li><span class="highlight">Ощущение:</span> Ощущение себя в клетке, потеря собственного «Я» под грузом навязанных ролей. Чувство, что ты должен быть кем-то, кем не являешься.</li>
+                </ul>
+            </div>
+
+            <div class="summary-block">
+                <div class="summary-title">Итог:</div>
                 <div class="subsection-content">
                     «Сжатие» для Quasarum — это любая форма давления (внутреннего или внешнего), которая:
                     <ul class="content-list">
@@ -152,78 +214,85 @@
             </div>
         </div>
 
-        <div class="divider-line"></div>
+        <div class="section-divider"></div>
 
         <div class="subsection">
-            <h3 class="subsection-title">8.2. Миазмы препарата</h3>
+            <h3 class="subsection-title">8.2. Миазматическая основа препарата</h3>
             <div class="subsection-content">
-                <span class="highlight">Обоснование миазмов для Quasarum</span>
+                Патогенез <span class="highlight">Quasarum</span> раскрывается через сложное переплетение нескольких миазмов, что объясняет глубину и масштаб его действия.
             </div>
 
             <div class="miasma-block">
-                <div class="miasma-title">• Псора (при обессиленности):</div>
+                <div class="miasma-title">• Псора (исходное состояние дефицита):</div>
                 <div class="subsection-content">
                     <span class="highlight">Quasarum</span> — это антимиазматическое средство для состояния глубочайшего энергетического коллапса, когда «внутренний квазар» человека потух. Он показан при апатии, отсутствии творчества, чувстве пустоты и неспособности генерировать жизненную силу. Препарат не просто добавляет энергии, он <span class="highlight">запускает</span> внутренний генератор, выводя из состояния псорического дефицита. Это исходное состояние, из которого Quasarum выводит пациента.
                 </div>
             </div>
 
             <div class="miasma-block">
-                <div class="miasma-title">• Сикотический миазм (неконтролируемый рост и расширение):</div>
+                <div class="miasma-title">• Сикотический миазм (динамика неконтролируемого роста):</div>
                 <div class="subsection-content">
-                    Препарат ярко проявляет <span class="highlight">сикотическую динамику</span> в своем действии. Это видно в симптомах хаотичной экспансии («хочется бежать, что-то делать») и нарушении координации. Quasarum <span class="highlight">использует энергию этого миазма</span>, направляя ее из хаотичного роста в целенаправленное, мощное излучение и творчество.
+                    Препарат ярко проявляет <span class="highlight">сикотическую динамику</span> в своей активной фазе. Это наблюдается в симптомах хаотичной экспансии («хочется бежать, что-то делать») и связанных с этим нарушениях координации. Quasarum <span class="highlight">не подавляет эту энергию, а трансформирует ее</span>, направляя из хаотичного роста в целенаправленное, мощное излучение и созидание.
                 </div>
             </div>
 
             <div class="miasma-block">
-                <div class="miasma-title">• Канцерный (раковый) миазм (глубокая тема трансформации «Я» в отношениях):</div>
+                <div class="miasma-title">• Канцерный (раковый) миазм (ключевая тема влияния и трансформации «Я»):</div>
                 <div class="subsection-content">
-                    Это ключевой миазм для понимания сценарных изменений. Канцерный миазм в своей основе имеет искаженные, напряженные взаимоотношения с другими (по мнению Яна Уотсона), где главная тема — <span class="highlight">влияние и контроль</span>.<br><br>
-                    Человек либо подавляет свою силу и право влиять (что ведет к болезни), либо проявляет ее тотально, жестко и деструктивно, «продавливая» свою правду, требуя, чтобы все было только по его законам. Это подобно квазару, который хаотично поглощает все вокруг. Quasarum гармонизирует энергию канцерного миазма, преобразуя подавленное или деструктивное стремление к контролю в <span class="highlight">осознанную, мощную и лишенную вины силу влияния</span>.
+                    Это центральный миазм для Quasarum, раскрывающий его основную сценарную проблему. Согласно концепции Яна Уотсона, канцерный миазм связан с искажёнными, напряжёнными взаимоотношениями, где ключевая тема — <span class="highlight">влияние и контроль</span>. Человек может либо подавлять свою силу и право влиять (что ведёт к болезни), либо проявлять её тотально и деструктивно, жёстко «продавливая» свою правду. <span class="highlight">Quasarum</span> гармонизирует эту энергию, <span class="highlight">преобразуя подавленное или тираническое стремление к контролю в осознанную, мощную и лишённую вины силу творческого влияния</span>.
                 </div>
             </div>
 
             <div class="miasma-block">
-                <div class="miasma-title">• Туберкулиновый миазм (бегство от ограничений):</div>
+                <div class="miasma-title">• Туберкулиновый миазм (импульс к прорыву):</div>
                 <div class="subsection-content">
-                    Есть отчетливые черты. <span class="highlight">Сильное желание свободы, физической активности, и прорыва</span> — это чисто туберкулиновые стремления. <span class="highlight">Quasarum</span> можно рассматривать как средство для туберлинового состояния, доведенного до предела, когда бегство и поиск уже невозможны, и единственный выход — не сбежать, а, сжавшись, <span class="highlight">совершить взрывной прорыв на месте</span>.
+                    В патогенезе присутствует яркий туберкулиновый компонент: сильное желание свободы, физической активности и преодоления любых ограничений. <span class="highlight">Quasarum</span> можно рассматривать как средство для туберкулинового состояния, доведённого до предела, когда бегство и поиск нового становятся невозможны. Единственный выход — <span class="highlight">не сбежать, а, сжавшись, совершить взрывной прорыв на месте</span>, трансформируя саму точку заточения в источник невероятной мощности.
                 </div>
             </div>
 
-            <div class="miasma-block">
-                <div class="miasma-title">Итог:</div>
+            <div class="summary-block">
+                <div class="summary-title">Итог:</div>
                 <div class="subsection-content">
-                    <span class="highlight">Quasarum</span> — это препарат, работающий на стыке <span class="highlight">Псоры (исходная точка), Сикоза (динамика) и Канцерным смазмом (основная тема взаимоотношений)</span>, с мощным <span class="highlight">Туберлиновым</span> импульсом к прорыву. Человек учится излучать свою силу как свет квазара — структурируя пространство, притягивая ресурсы и транслируя свои законы как Творец, а не как тиран.
+                    <span class="highlight">Quasarum</span> — это препарат, работающий на стыке миазмов:
+                    <ul class="content-list">
+                        <li><span class="highlight">Псора</span> — исходная точка угасания</li>
+                        <li><span class="highlight">Сикоз</span> — динамика высвобождения энергии</li>
+                        <li><span class="highlight">Канцерный миазм</span> — основная тема отношений и влияния</li>
+                        <li><span class="highlight">Туберкулиновый миазм</span> — импульс к прорыву</li>
+                    </ul>
+                    Человек под его действием учится не подавлять и не изливать свою силу хаотично, а <span class="highlight">излучать её, подобно квазару</span> — структурируя пространство, притягивая ресурсы и транслируя свои законы как Творец, а не как тиран.
                 </div>
             </div>
         </div>
 
-        <div class="divider-line"></div>
+        <div class="section-divider"></div>
 
         <div class="subsection">
             <h3 class="subsection-title">8.3. Портрет пациента Quasarum</h3>
 
             <div class="patient-portrait">
                 <div class="subsection-content">
-                    <span class="highlight">Краткий портрет пациента Quasarum:</span><br><br>
                     Это человек, ощущающий в себе огромный, но заблокированный потенциал. Внешне это может проявляться как депрессия, апатия и потеря смысла, однако в глубине души живет уверенность в своем предназначении влиять, творить и менять правила игры. Основная проблема — неспособность пробить "скорлупу" застоя и неуверенности.
                 </div>
                 <div class="subsection-content">
-                    Часто это состояние усугубляется внутренними конфликтами, связанными с несоответствием социальным ожиданиям («я должен быть сильным мужчиной» / «я должна быть мягкой женщиной»). Чувство вынужденности играть несвойственную роль дробит личность и блокирует энергию.
+                    Часто это состояние усугубляется внутренними конфликтами, связанными с несоответствием социальным ожиданиям («я должен быть сильным мужчиной» / «я должна быть мягкой женщиной»). Вынужденность играть несвойственную роль дробит личность и блокирует энергию.
                 </div>
                 <div class="subsection-content">
                     Когда доступ к силе наконец появляется, ее проявления могут быть сначала неуклюжими и излишне прямолинейными — подобно первому мощному импульсу квазара. Препарат помогает преобразовать эту грубую силу в осознанное и эффективное влияние.
                 </div>
                 <div class="main-text" style="margin-top: 15px;">
-                    <span class="highlight">Ключевой конфликт:</span> Разрыв между глубоким внутренним знанием о своей силе и полной невозможностью ее реализовать.
+                    Суммируя все вышесказанное, <span class="highlight">ключевой характеристикой пациента, нуждающегося в Quasarum, является разрыв между глубоким внутренним знанием о своей силе и полной невозможностью ее проявить</span>.
                 </div>
             </div>
         </div>
+
+        <div class="section-divider"></div>
 
     </div>
 
     <div class="chapter-navigation">
         <button class="nav-button prev-button">← Предыдущая глава</button>
-        <div class="chapter-indicator">Глава 8 из 9</div>
+        <div class="chapter-indicator">Глава 8 из 11</div>
         <button class="nav-button next-button">Следующая глава →</button>
     </div>
 </div>

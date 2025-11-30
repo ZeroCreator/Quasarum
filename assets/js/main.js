@@ -133,6 +133,7 @@ class App {
             let url;
             let isGallery = false;
             let isReferences = false;
+            let isAcknowledgments = false;
 
             // Определяем тип страницы
             if (chapter === 'gallery') {
@@ -141,6 +142,9 @@ class App {
             } else if (chapter === 'references') {
                 url = 'chapters/references.html';
                 isReferences = true;
+            } else if (chapter === 'acknowledgments') {
+                url = 'chapters/acknowledgments.html';
+                isAcknowledgments = true;
             } else {
                 url = `chapters/chapter${chapter}.html`;
             }
@@ -175,8 +179,8 @@ class App {
 
             document.getElementById('chapter-container').innerHTML = content;
 
-            // Обновляем навигацию - передаем ВСЕ три параметра
-            this.updateNavigationButtons(chapter, isGallery, isReferences);
+            // Обновляем навигацию - передаем ВСЕ параметры
+            this.updateNavigationButtons(chapter, isGallery, isReferences, isAcknowledgments);
 
             // Прокрутка к верху
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -198,14 +202,14 @@ class App {
         }
     }
 
-    updateNavigationButtons(currentChapter, isGallery = false, isReferences = false) {
+    updateNavigationButtons(currentChapter, isGallery = false, isReferences = false, isAcknowledgments = false) {
         const prevButton = document.querySelector('.prev-button');
         const nextButton = document.querySelector('.next-button');
         const indicator = document.querySelector('.chapter-indicator');
 
         if (!prevButton || !nextButton || !indicator) return;
 
-        // Для галереи
+        // Для галереи - ИСПРАВЛЕННАЯ ЛОГИКА
         if (isGallery) {
             prevButton.innerHTML = '← Материалы';
             prevButton.onclick = () => this.loadChapter('references');
@@ -221,8 +225,8 @@ class App {
 
         // Для страницы материалов
         if (isReferences) {
-            prevButton.innerHTML = '← К главе 9';
-            prevButton.onclick = () => this.loadChapter('9');
+            prevButton.innerHTML = '← Благодарности';
+            prevButton.onclick = () => this.loadChapter('acknowledgments');
             prevButton.disabled = false;
 
             nextButton.innerHTML = 'Галерея →';
@@ -231,6 +235,21 @@ class App {
             nextButton.style.display = 'block';
 
             indicator.textContent = 'Использованные материалы';
+            return;
+        }
+
+        // Для страницы благодарностей
+        if (isAcknowledgments) {
+            prevButton.innerHTML = '← Глава 11';
+            prevButton.onclick = () => this.loadChapter('11');
+            prevButton.disabled = false;
+
+            nextButton.innerHTML = 'Материалы →';
+            nextButton.onclick = () => this.loadChapter('references');
+            nextButton.disabled = false;
+            nextButton.style.display = 'block';
+
+            indicator.textContent = 'Благодарности';
             return;
         }
 
@@ -247,16 +266,16 @@ class App {
             prevButton.disabled = true;
         }
 
-        // Следующая глава - ОСОБЫЙ СЛУЧАЙ ДЛЯ ГЛАВЫ 11
+        // Следующая глава
         if (chapterNum < 11) {
             nextButton.innerHTML = 'Следующая глава →';
             nextButton.onclick = () => this.loadChapter((chapterNum + 1).toString());
             nextButton.disabled = false;
             nextButton.style.display = 'block';
         } else if (chapterNum === 11) {
-            // Для последней главы ведем к материалам
-            nextButton.innerHTML = 'Материалы →';
-            nextButton.onclick = () => this.loadChapter('references');
+            // Для последней главы ведем к благодарностям
+            nextButton.innerHTML = 'Благодарности →';
+            nextButton.onclick = () => this.loadChapter('acknowledgments');
             nextButton.disabled = false;
             nextButton.style.display = 'block';
         } else {

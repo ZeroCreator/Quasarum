@@ -1,12 +1,5 @@
 <div class="chapter-content">
     <style>
-        .patient-portrait {
-            background: linear-gradient(135deg, rgba(138, 122, 255, 0.1) 0%, rgba(74, 58, 255, 0.05) 100%);
-            border: 1px solid rgba(138, 122, 255, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-        }
         .indication-item {
             margin: 15px 0;
             padding: 15px;
@@ -16,35 +9,11 @@
         }
         .indication-number {
             font-weight: 600;
-            color: #8a7aff;
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-        .key-block {
-            background: rgba(30, 30, 50, 0.8);
-            border-left: 4px solid #8a7aff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .key-category {
-            font-weight: 600;
             color: #a0a0ff;
-            margin-bottom: 12px;
-            font-size: 16px;
-        }
-        .key-list {
-            margin: 10px 0;
-        }
-        .key-list li {
             margin-bottom: 8px;
-            line-height: 1.6;
+            font-size: 16px;
         }
         /* Стили для светлой темы */
-        body.light-theme .patient-portrait {
-            background: linear-gradient(135deg, rgba(138, 122, 255, 0.15) 0%, rgba(74, 58, 255, 0.08) 100%);
-            border: 1px solid rgba(138, 122, 255, 0.4);
-        }
         body.light-theme .indication-item {
             background: rgba(255, 255, 255, 0.8);
             border-left: 3px solid #d1d1e0;
@@ -52,27 +21,12 @@
         body.light-theme .indication-number {
             color: #6a5acd;
         }
-        body.light-theme .key-block {
-            background: rgba(255, 255, 255, 0.9);
-            border-left: 4px solid #6a5acd;
-        }
-        body.light-theme .key-category {
-            color: #6a5acd;
-        }
         /* Светлая тема для текста внутри блоков */
-        body.light-theme .indication-item,
-        body.light-theme .key-block,
-        body.light-theme .key-list li {
+        body.light-theme .indication-item {
             color: #3a3a3a;
         }
-        /* Светлая тема для маркеров списков */
-        body.light-theme .key-list li:before {
-            color: #6a5acd;
-        }
         @media (max-width: 768px) {
-            .patient-portrait,
-            .indication-item,
-            .key-block {
+            .indication-item {
                 padding: 15px;
                 margin: 15px 0;
             }
@@ -84,117 +38,56 @@
         <h1 class="chapter-title">Глава 10. Ключевые показания к назначению Quasarum</h1>
 
         <div class="main-text">
-            Показания к применению Quasarum определяется синтезом двух факторов: патогенеза, характерного для класса Невещественных препаратов, и индивидуальной клинической картины, отражающей его глубинную метафору квазара.
+            Итак, краткие выводы по материалам прувинга и исследования Quasarum Показания к применению для этого препарата определяются синтезом двух факторов: патогенеза, характерного для класса Невещественных препаратов, и индивидуальной клинической картины, отражающей его глубинную метафору квазара.
         </div>
 
-        <div class="divider-line strong"></div>
-
-        <div class="subsection">
-            <h3 class="subsection-title">10.1. Краткий портрет пациента Quasarum</h3>
-
-            <div class="patient-portrait">
-                <div class="subsection-content">
-                    Это человек, ощущающий в себе огромный, но заблокированный потенциал. Внешне это может проявляться как депрессия, апатия и потеря смысла, однако в глубине души живет уверенность в своем предназначении влиять, творить и менять правила игры. Основная проблема — <span class="highlight">неспособность пробить "скорлупу" застоя и неуверенности</span>.
-                </div>
-                <div class="subsection-content">
-                    Часто это состояние усугубляется <span class="highlight">внутренними конфликтами</span>, связанными с несоответствием социальным ожиданиям («я должен быть сильным мужчиной» / «я должна быть мягкой женщиной»). Чувство вынужденности играть несвойственную роль дробит личность и блокирует энергию.
-                </div>
-                <div class="subsection-content">
-                    Когда доступ к силе наконец появляется, ее проявления могут быть сначала неуклюжими и излишне прямолинейными — подобно первому мощному импульсу квазара. Препарат помогает преобразовать эту грубую силу в осознанное и эффективное влияние.
-                </div>
-                <div class="main-text" style="margin-top: 15px;">
-                    <span class="highlight">Ключевая характеристика:</span> Разрыв между глубоким внутренним знанием о своей силе и полной невозможностью ее реализовать.
-                </div>
-            </div>
+        <div class="main-text">
+            Ключевые показания:
         </div>
 
-        <div class="divider-line"></div>
-
-        <div class="subsection">
-            <h3 class="subsection-title">10.2. Показания к применению</h3>
+        <div class="indication-item">
+            <div class="indication-number">1. «Волевой паралич»</div>
             <div class="subsection-content">
-                Ключевые показания определяются синтезом двух факторов: патогенеза, характерного для класса Невещественных препаратов, и индивидуальной клинической картины, отражающей его глубинную метафору квазара.
-            </div>
-
-            <div class="indication-item">
-                <div class="indication-number">1. «Волевой паралич»</div>
-                <div class="subsection-content">
-                    Состояния, при которых способность принимать решения, действовать и отстаивать себя утрачена в результате выгорания, травмы или длительного подавления.
-                </div>
-            </div>
-
-            <div class="indication-item">
-                <div class="indication-number">2. Необходимость энергетического перезапуска</div>
-                <div class="subsection-content">
-                    Глубокий энергетический застой, требующий не постепенной коррекции, а резкого, мощного импульса для перевода системы в новое состояние активности.
-                </div>
-            </div>
-
-            <div class="indication-item">
-                <div class="indication-number">3. Подавленность и апатия</div>
-                <div class="subsection-content">
-                    Отсутствие жизненных сил и перспектив, глубокая аппатия, когда человек чувствует себя в ловушке собственной жизни.
-                </div>
-            </div>
-
-            <div class="indication-item">
-                <div class="indication-number">4. Комплекс «невидимки»</div>
-                <div class="subsection-content">
-                    Ощущение, что человека и его потребности не замечают, его голос не имеет веса.
-                </div>
-            </div>
-
-            <div class="indication-item">
-                <div class="indication-number">5. Подавленная творческая и лидерская сила</div>
-                <div class="subsection-content">
-                    Внутреннее знание о своем предназначении влиять и творить, блокированное страхом, неуверенностью или чувством вины.
-                </div>
-            </div>
-
-            <div class="indication-item">
-                <div class="indication-number">6. Дисгармоничное проявление силы</div>
-                <div class="subsection-content">
-                    Склонность к прямолинейному, силовому взаимодействию с миром («ломиться напролом»), ведущая к конфликтам и травмам как на физическом, так и на коммуникативном уровне. Это проявляется в неумении обходить преграды, а также в полном отсутствии дипломатичности: человек склонен говорить жёстко, прямо и безапелляционно, «рубя правду-матку», не учитывая контекст и чувства собеседника. Такая прямолинейность часто воспринимается как грубость и провоцирует конфликты, отражая фундаментальный способ взаимодействия с реальностью — через прямое силовое воздействие без гибкости и такта.
-                </div>
+                Состояние утраты способности принимать решения, действовать и отстаивать себя после выгорания, эмоциональной травмы или длительного подавления.
             </div>
         </div>
 
-        <div class="divider-line"></div>
-
-        <div class="subsection">
-            <h3 class="subsection-title">10.3. Ключи препарата Quasarum</h3>
-
-            <div class="key-block">
-                <div class="key-category">Способ взаимодействия с миром (Поведение):</div>
-                <ul class="key-list">
-                    <li><span class="highlight">Напор</span> (Прямолинейность, «снести преграды головой», пробивная энергия)</li>
-                    <li><span class="highlight">Влияние</span> (Активное формирование пространства, желание влиять на людей и обстоятельства)</li>
-                    <li><span class="highlight">Трансформация</span> (Глубинный перезапуск, преображение себя и реальности)</li>
-                </ul>
-            </div>
-
-            <div class="key-block">
-                <div class="key-category">Энергетический уровень:</div>
-                <ul class="key-list">
-                    <li><span class="highlight">Перезапуск</span> (Мгновенный выход из застоя, резкий энергетический скачок)</li>
-                    <li><span class="highlight">Источник</span> (Пробуждение внутреннего генератора силы, автономность)</li>
-                </ul>
-            </div>
-
-            <div class="key-block">
-                <div class="key-category">Глубинная метафора:</div>
-                <ul class="key-list">
-                    <li><span class="highlight">Квазар</span> (Активное галактическое ядро, космический центр силы, трансформирующее излучение)</li>
-                    <li><span class="highlight">Фундаментальная Сила</span> (Сила как первичная, неполяризованная и необусловленная категория, стоящая над любыми бинарными системами, включая гендер)</li>
-                </ul>
+        <div class="indication-item">
+            <div class="indication-number">2. Глубокий энергетический застой</div>
+            <div class="subsection-content">
+                Необходимость резкого, мощного перезапуска живой системы вместо постепенной коррекции.
             </div>
         </div>
 
-        <div class="divider-line strong"></div>
-
-        <div class="decorative-quote">
-            Quasarum — это ключ к пробуждению внутреннего генератора силы. Он для тех, кто знает о своей мощи, но не может ее проявить; кто чувствует предназначение влиять, но заперт в клетке застоя и неуверенности.
+        <div class="indication-item">
+            <div class="indication-number">3. Экзистенциальная подавленность</div>
+            <div class="subsection-content">
+                Отсутствие жизненных сил и перспектив, глубокая апатия, когда человек чувствует себя в ловушке собственной жизни.
+            </div>
         </div>
+
+        <div class="indication-item">
+            <div class="indication-number">4. Комплекс «невидимки»</div>
+            <div class="subsection-content">
+                Чувство, что человека и его потребности систематически игнорируются, а его голос не имеет веса.
+            </div>
+        </div>
+
+        <div class="indication-item">
+            <div class="indication-number">5. Подавленная самореализация</div>
+            <div class="subsection-content">
+                Внутреннее знание о своем предназначении влиять и творить, блокированное страхом, неуверенностью или чувством вины.
+            </div>
+        </div>
+
+        <div class="indication-item">
+            <div class="indication-number">6. Дисгармоничное проявление силы</div>
+            <div class="subsection-content">
+                Склонность к прямолинейному, силовому взаимодействию с миром («ломиться напролом»), ведущая к конфликтам и травмам как на физическом, так и на коммуникативном уровне. Это проявляется в неумении обходить преграды, а также в отсутствии дипломатичности.
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
 
     </div>
 
