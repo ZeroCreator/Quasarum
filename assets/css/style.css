@@ -119,7 +119,6 @@ body {
     font-weight: 600;
     box-shadow: 0 4px 12px rgba(138, 122, 255, 0.3);
     min-width: 140px;
-    padding: 12px 18px;
     height: auto;
     line-height: 1.4;
 }
@@ -146,9 +145,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 1; /* Убираем лишний межстрочный интервал */
+    line-height: 1;
 }
-
 
 .menu-toggle:hover,
 .theme-toggle:hover {
@@ -163,7 +161,7 @@ body {
 }
 
 .sidebar.active ~ .theme-toggle {
-    left: 560px; /* 400px (меню) + 140px (ширина меню) + 20px (пробел) */
+    left: 560px;
 }
 
 .menu-header {
@@ -372,12 +370,13 @@ body {
     font-size: 16px !important;
     text-decoration: none !important;
     opacity: 1;
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 5px !important;
     font-weight: 500;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    white-space: nowrap !important;
 }
 
 .footer-right a:hover {
@@ -385,7 +384,25 @@ body {
     transform: translateY(-1px);
 }
 
-.footer-right img {
+/* Левый логотип */
+.footer-left-logo {
+    height: 25px;
+    width: auto;
+    margin-right: 6px !important;
+    vertical-align: middle;
+}
+
+/* Правый логотип - БОЛЬШОЙ */
+.footer-right-logo {
+    height: 40px !important;
+    width: auto !important;
+    margin-left: 2px !important;
+    vertical-align: middle !important;
+    filter: none !important;
+}
+
+/* Иконка Telegram */
+.footer-right a img:first-child {
     width: 20px !important;
     height: 20px !important;
     filter: brightness(0) invert(1);
@@ -477,11 +494,6 @@ body {
         font-size: 13px;
         min-width: 120px;
     }
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 5px;
-    }
     .theme-toggle {
         top: 17px;
         left: 150px;
@@ -494,6 +506,27 @@ body {
     }
     .sidebar.active ~ .theme-toggle {
         left: 470px;
+    }
+
+    /* Адаптивность футера */
+    .footer-right-logo {
+        height: 35px !important;
+        margin-left: 4px !important;
+    }
+
+    .footer-left-logo {
+        height: 22px;
+        margin-right: 4px !important;
+    }
+
+    .footer-right a {
+        font-size: 14px !important;
+        gap: 4px !important;
+    }
+
+    .footer-right a img:first-child {
+        width: 16px !important;
+        height: 16px !important;
     }
 }
 
@@ -534,9 +567,6 @@ body {
     .site-header {
         margin-top: 10px;
     }
-    .footer-content {
-        font-size: 13px;
-    }
     .site-footer {
         padding: 15px 0;
     }
@@ -563,13 +593,20 @@ body {
     .sidebar.active ~ .theme-toggle {
         left: 405px;
     }
-    .footer-right a {
-        font-size: 14px !important;
-        gap: 6px !important;
+
+    /* Адаптивность футера */
+    .footer-left-logo {
+        margin-right: 3px !important;
+        height: 20px;
     }
-    .footer-right img {
-        width: 16px !important;
-        height: 16px !important;
+
+    .footer-right-logo {
+        height: 30px !important;
+        margin-left: 3px !important;
+    }
+
+    .footer-right a {
+        gap: 3px !important;
     }
 }
 
@@ -617,6 +654,7 @@ body.light-theme .footer-content {
     color: #5a5a7a;
 }
 
+body.light-theme .footer-left,
 body.light-theme .footer-right a {
     color: #5a5a7a !important;
 }
@@ -625,8 +663,19 @@ body.light-theme .footer-right a:hover {
     color: #8a7aff !important;
 }
 
-body.light-theme .footer-right img {
+/* СВЕТЛАЯ ТЕМА: левый лого темнеет */
+body.light-theme .footer-left-logo {
     filter: brightness(0) saturate(100%) opacity(0.8);
+}
+
+/* СВЕТЛАЯ ТЕМА: Telegram иконка темная */
+body.light-theme .footer-right a img:first-child {
+    filter: brightness(0) saturate(100%) opacity(0.8);
+}
+
+/* Правый логотип ВСЕГДА без фильтров */
+body.light-theme .footer-right-logo {
+    filter: none !important;
 }
 
 /* Кнопка переключения темы в светлой теме */

@@ -292,7 +292,23 @@ class App {
         const yearElement = document.querySelector('.footer-left');
         if (yearElement) {
             const currentYear = new Date().getFullYear();
-            yearElement.textContent = `© ${currentYear} QUASARUM`;
+            // Ищем элемент с годом внутри .footer-left
+            const yearText = yearElement.querySelector('span, em, .year') || document.createElement('span');
+
+            if (yearText.tagName === 'SPAN' || yearText.tagName === 'EM') {
+                yearText.textContent = `© ${currentYear} QUASARUM`;
+            } else {
+                // Создаем элемент для года
+                yearText.className = 'year';
+                yearText.textContent = `© ${currentYear} QUASARUM`;
+                // Вставляем после картинки
+                const logo = yearElement.querySelector('.footer-left-logo');
+                if (logo) {
+                    logo.insertAdjacentElement('afterend', yearText);
+                } else {
+                    yearElement.appendChild(yearText);
+                }
+            }
         }
     }
 }
