@@ -134,6 +134,7 @@ class App {
             let isGallery = false;
             let isReferences = false;
             let isAcknowledgments = false;
+            let isScientific = false;
 
             // Определяем тип страницы
             if (chapter === 'gallery') {
@@ -145,6 +146,9 @@ class App {
             } else if (chapter === 'acknowledgments') {
                 url = 'chapters/acknowledgments.html';
                 isAcknowledgments = true;
+            } else if (chapter === 'scientific') {
+                url = 'chapters/scientific-materials.html';
+                isScientific = true;
             } else {
                 url = `chapters/chapter${chapter}.html`;
             }
@@ -180,7 +184,7 @@ class App {
             document.getElementById('chapter-container').innerHTML = content;
 
             // Обновляем навигацию - передаем ВСЕ параметры
-            this.updateNavigationButtons(chapter, isGallery, isReferences, isAcknowledgments);
+            this.updateNavigationButtons(chapter, isGallery, isReferences, isAcknowledgments, isScientific);
 
             // Прокрутка к верху
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -202,22 +206,37 @@ class App {
         }
     }
 
-    updateNavigationButtons(currentChapter, isGallery = false, isReferences = false, isAcknowledgments = false) {
+    updateNavigationButtons(currentChapter, isGallery = false, isReferences = false, isAcknowledgments = false, isScientific = false) {
         const prevButton = document.querySelector('.prev-button');
         const nextButton = document.querySelector('.next-button');
         const indicator = document.querySelector('.chapter-indicator');
 
         if (!prevButton || !nextButton || !indicator) return;
 
-        // Для галереи - ИСПРАВЛЕННАЯ ЛОГИКА
-        if (isGallery) {
+        // Для научной страницы
+        if (isScientific) {
             prevButton.innerHTML = '← Материалы';
             prevButton.onclick = () => this.loadChapter('references');
             prevButton.disabled = false;
 
+            nextButton.innerHTML = 'Галерея →';
+            nextButton.onclick = () => this.loadChapter('gallery');
+            nextButton.disabled = false;
+            nextButton.style.display = 'block';
+
+            indicator.textContent = 'Научная справка';
+            return;
+        }
+
+        // Для галереи
+        if (isGallery) {
+            prevButton.innerHTML = '← Научная справка';
+            prevButton.onclick = () => this.loadChapter('scientific');
+            prevButton.disabled = false;
+
             nextButton.innerHTML = 'Следующая →';
             nextButton.disabled = true;
-            nextButton.style.display = 'none';
+            nextButton.style.display = 'block';
 
             indicator.textContent = 'Галерея';
             return;
@@ -229,8 +248,8 @@ class App {
             prevButton.onclick = () => this.loadChapter('acknowledgments');
             prevButton.disabled = false;
 
-            nextButton.innerHTML = 'Галерея →';
-            nextButton.onclick = () => this.loadChapter('gallery');
+            nextButton.innerHTML = 'Научная справка →';
+            nextButton.onclick = () => this.loadChapter('scientific'); // ОБНОВЛЕНО
             nextButton.disabled = false;
             nextButton.style.display = 'block';
 

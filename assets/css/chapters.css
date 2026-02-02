@@ -709,3 +709,257 @@ body.light-theme .reference-link {
 body.light-theme .reference-link:hover {
     color: #8a7aff;
 }
+
+/* Стили для горизонтального расположения картинки и текста */
+.image-text-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px 0;
+    min-height: 300px; /* Минимальная высота для блока */
+}
+
+/* Обратный порядок на мобильных (текст будет сверху) */
+.image-text-layout.reverse {
+    flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+    .image-text-layout {
+        flex-direction: row;
+        align-items: stretch; /* Растягиваем оба блока на всю высоту */
+    }
+
+    .image-text-layout.reverse {
+        flex-direction: row-reverse; /* Обратный порядок на десктопе */
+    }
+
+    .image-side {
+        flex: 0 0 45%;
+        max-width: 45%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text-side {
+        flex: 0 0 55%;
+        max-width: 55%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 30px;
+    }
+
+    /* Для обратного порядка добавляем отступ справа, а не слева */
+    .image-text-layout.reverse .text-side {
+        padding-left: 0;
+        padding-right: 30px;
+    }
+
+    /* Обертка для изображения с фиксированной высотой */
+    .image-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    /* Обертка для текста с фиксированной высотой */
+    .text-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    /* Подгоняем изображение в пределах обертки */
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+        max-height: 350px; /* Ограничиваем максимальную высоту */
+        object-fit: contain; /* Сохраняем пропорции */
+        object-position: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Подпись под изображением */
+    .image-wrapper .image-caption {
+        margin-top: 10px;
+        font-style: italic;
+        color: #8888aa;
+        font-size: 14px;
+        line-height: 1.4;
+        text-align: center;
+        flex-shrink: 0; /* Не сжимается */
+    }
+
+    /* Контент в текстовой части растягиваем */
+    .text-wrapper .subsection-content {
+        flex: 1;
+    }
+
+    .text-wrapper .fact-table {
+        flex-shrink: 0; /* Таблица не сжимается */
+    }
+}
+
+/* Для светлой темы */
+.light-theme .image-wrapper .image-caption {
+    color: #666;
+}
+
+/* Стили для обычных блоков с изображением */
+.image-block {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.image-block img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.image-block img:hover {
+    transform: scale(1.01);
+}
+
+.image-block .image-caption {
+    font-style: italic;
+    color: #8888aa;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.light-theme .image-block .image-caption {
+    color: #666;
+}
+
+/* Стили для блока с характеристиками */
+.content-list li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 20px;
+}
+
+.content-list li::before {
+    content: "•";
+    color: #ff6b6b;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.content-list li strong {
+    color: #ffd700;
+}
+
+/* Для светлой темы */
+.light-theme .content-list li::before {
+    color: #2c5282;
+}
+
+.light-theme .content-list li strong {
+    color: #2c5282;
+}
+
+/* Стили для фактов */
+.fact-table {
+    background: rgba(40, 40, 70, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 4px solid #ff6b6b;
+}
+
+.light-theme .fact-table {
+    background: rgba(236, 240, 247, 0.8);
+    border-left: 4px solid #2c5282;
+}
+
+.fact-row {
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light-theme .fact-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.fact-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.fact-label {
+    flex: 1;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.light-theme .fact-label {
+    color: #2c5282;
+}
+
+.fact-value {
+    flex: 2;
+    color: #b8b8d0;
+}
+
+.light-theme .fact-value {
+    color: #4a5568;
+}
+
+/* Стили для верхнего интро */
+.intro-block {
+    margin: 40px 0;
+    position: relative;
+}
+
+.drop-cap {
+    float: left;
+    font-size: 80px;
+    line-height: 60px;
+    padding-top: 18px;
+    padding-right: 8px;
+    padding-left: 3px;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.light-theme .drop-cap {
+    color: #2c5282;
+}
+
+.intro-text {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #d0d0e7;
+    text-align: justify;
+}
+
+.light-theme .intro-text {
+    color: #2d3748;
+}
+
+/* На мобильных устройствах */
+@media (max-width: 1023px) {
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+    }
+
+    .image-text-layout {
+        gap: 20px;
+    }
+}
